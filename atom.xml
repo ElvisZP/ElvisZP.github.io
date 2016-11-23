@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-23T16:52:12.000Z</updated>
+  <updated>2016-11-23T16:53:41.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/11/23/2016-11-24%20Autolayout%20Tips/"/>
     <id>http://yoursite.com/2016/11/23/2016-11-24 Autolayout Tips/</id>
     <published>2016-11-23T15:00:01.000Z</published>
-    <updated>2016-11-23T16:52:12.000Z</updated>
+    <updated>2016-11-23T16:53:41.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近Xib+Autolayout用的比较多，也学习到不少内容，在这里总结出来。</p>
 <h2 id="Label布局"><a href="#Label布局" class="headerlink" title="Label布局"></a>Label布局</h2><p>一般情况下，只需设置其左边距、上边距约束即可。<br><img src="/images/14799173962097.jpg" alt="-w400"></p>
@@ -31,6 +31,8 @@
 <li>选中需要的view</li>
 <li>点击工具栏中的Editor -&gt; Embed in -&gt; View<br>另外ScrollView、StackView也可同样操作</li>
 </ol>
+<hr>
+<p>未完待续</p>
 ]]></content>
     
     <summary type="html">
