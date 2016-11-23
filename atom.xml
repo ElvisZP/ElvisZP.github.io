@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>ElvisZP</title>
+  <title>Hexo</title>
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="/"/>
+  <link href="http://yoursite.com/"/>
   <updated>2016-11-23T03:57:01.000Z</updated>
-  <id>/</id>
+  <id>http://yoursite.com/</id>
   
   <author>
-    <name>zhang peng</name>
+    <name>John Doe</name>
     
   </author>
   
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Mathjax and Hexo</title>
-    <link href="/2016/11/22/2016-11-23/"/>
-    <id>/2016/11/22/2016-11-23/</id>
+    <link href="http://yoursite.com/2016/11/22/2016-11-23/"/>
+    <id>http://yoursite.com/2016/11/22/2016-11-23/</id>
     <published>2016-11-22T03:56:49.000Z</published>
     <updated>2016-11-23T03:57:01.000Z</updated>
     
