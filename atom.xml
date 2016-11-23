@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-23T16:53:41.000Z</updated>
+  <updated>2016-11-23T16:55:58.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,13 +20,13 @@
     <link href="http://yoursite.com/2016/11/23/2016-11-24%20Autolayout%20Tips/"/>
     <id>http://yoursite.com/2016/11/23/2016-11-24 Autolayout Tips/</id>
     <published>2016-11-23T15:00:01.000Z</published>
-    <updated>2016-11-23T16:53:41.000Z</updated>
+    <updated>2016-11-23T16:55:58.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近Xib+Autolayout用的比较多，也学习到不少内容，在这里总结出来。</p>
-<h2 id="Label布局"><a href="#Label布局" class="headerlink" title="Label布局"></a>Label布局</h2><p>一般情况下，只需设置其左边距、上边距约束即可。<br><img src="/images/14799173962097.jpg" alt="-w400"></p>
+<h3 id="Label布局"><a href="#Label布局" class="headerlink" title="Label布局"></a>Label布局</h3><p>一般情况下，只需设置其左边距、上边距约束即可。<br><img src="/images/14799173962097.jpg" alt="-w400"></p>
 <p>我们知道，一般UIView布局，如果仅设置其左边距、上边距约束，那么Xcode就会报错，需要你加上宽高约束。那么为什么UILabel却不会报错呢？原因在于Label是自带内容的View，只要你设置了文本，那么它就能根据内容，自动计算出大小。同理，UIButton也是一样的。<br>另外还有一种特殊情况，就是你需要多行展示文本的时候，<a id="more"></a>这种情况下你就必须设置其宽度或者其右边距，同时将Lines属性设为0，否则它们不知道在什么宽度的情况下换行。如图：<br><img src="/images/14799182141013.jpg" alt="-w400"></p>
-<h2 id="⌘-快捷键"><a href="#⌘-快捷键" class="headerlink" title="⌘ + = 快捷键"></a>⌘ + = 快捷键</h2><p>Command键加=，能够自动将View设为与内容相适应的大小。<br><img src="/images/14799189164759.jpg" alt="-w300"><br>文字有部分未显示出来，此时按下快捷键，快速适应大小。<br>最方便的还是在添加UIImageView的时候，一般你拖出一张图片到xib上是这样的：<br><img src="/images/14799190296407.jpg" alt="-w300"><br>默认就是这样大小，如果此时你有一个小小的icon要加上去，那么效果是这样的：<br><img src="/images/14799191933631.jpg" alt="-w300"><br>一般情况下，你需要的是将UIImageView改为原图大小，那么现在最方便的就是按下快捷键：<br><img src="/images/14799192727895.jpg" alt="-w300"></p>
-<h2 id="合并View"><a href="#合并View" class="headerlink" title="合并View"></a>合并View</h2><p>有时会有这样的情况，需要将页面中几个View合并到同一个SuperView中，简单的方式就是：</p>
+<h3 id="⌘-快捷键"><a href="#⌘-快捷键" class="headerlink" title="⌘ + = 快捷键"></a>⌘ + = 快捷键</h3><p>Command键加=，能够自动将View设为与内容相适应的大小。<br><img src="/images/14799189164759.jpg" alt="-w300"><br>文字有部分未显示出来，此时按下快捷键，快速适应大小。<br>最方便的还是在添加UIImageView的时候，一般你拖出一张图片到xib上是这样的：<br><img src="/images/14799190296407.jpg" alt="-w300"><br>默认就是这样大小，如果此时你有一个小小的icon要加上去，那么效果是这样的：<br><img src="/images/14799191933631.jpg" alt="-w300"><br>一般情况下，你需要的是将UIImageView改为原图大小，那么现在最方便的就是按下快捷键：<br><img src="/images/14799192727895.jpg" alt="-w300"></p>
+<h3 id="合并View"><a href="#合并View" class="headerlink" title="合并View"></a>合并View</h3><p>有时会有这样的情况，需要将页面中几个View合并到同一个SuperView中，简单的方式就是：</p>
 <ol>
 <li>选中需要的view</li>
 <li>点击工具栏中的Editor -&gt; Embed in -&gt; View<br>另外ScrollView、StackView也可同样操作</li>
@@ -38,7 +38,7 @@
     <summary type="html">
     
       &lt;p&gt;最近Xib+Autolayout用的比较多，也学习到不少内容，在这里总结出来。&lt;/p&gt;
-&lt;h2 id=&quot;Label布局&quot;&gt;&lt;a href=&quot;#Label布局&quot; class=&quot;headerlink&quot; title=&quot;Label布局&quot;&gt;&lt;/a&gt;Label布局&lt;/h2&gt;&lt;p&gt;一般情况下，只需设置其左边距、上边距约束即可。&lt;br&gt;&lt;img src=&quot;/images/14799173962097.jpg&quot; alt=&quot;-w400&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Label布局&quot;&gt;&lt;a href=&quot;#Label布局&quot; class=&quot;headerlink&quot; title=&quot;Label布局&quot;&gt;&lt;/a&gt;Label布局&lt;/h3&gt;&lt;p&gt;一般情况下，只需设置其左边距、上边距约束即可。&lt;br&gt;&lt;img src=&quot;/images/14799173962097.jpg&quot; alt=&quot;-w400&quot;&gt;&lt;/p&gt;
 &lt;p&gt;我们知道，一般UIView布局，如果仅设置其左边距、上边距约束，那么Xcode就会报错，需要你加上宽高约束。那么为什么UILabel却不会报错呢？原因在于Label是自带内容的View，只要你设置了文本，那么它就能根据内容，自动计算出大小。同理，UIButton也是一样的。&lt;br&gt;另外还有一种特殊情况，就是你需要多行展示文本的时候，
     
     </summary>
