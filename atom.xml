@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-24T02:50:55.000Z</updated>
+  <updated>2016-11-24T03:53:38.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Runtime 实际应用</title>
+    <link href="http://yoursite.com/2016/11/24/2016-11-24/"/>
+    <id>http://yoursite.com/2016/11/24/2016-11-24/</id>
+    <published>2016-11-24T03:31:01.000Z</published>
+    <updated>2016-11-24T03:53:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>我这里就不说原理了，目前网络上有很多对原理介绍特别深入的博客。我这里就总结下我实际开发当中应用到的实际场景。</p>
+<h3 id="1-统计埋点"><a href="#1-统计埋点" class="headerlink" title="1. 统计埋点"></a>1. 统计埋点</h3><p>在实际应用中，会有需要统计实际应用路径的需求，一般都会在所有页面的viewDidAppear和viewDidDisappear事件中添加统计。<br>那么这种情况下，每个页面都去添加肯定是最低级的做法，这个时候，Runtime的功能就能发挥出来了。<br>通过+load和Method Swizzling即可实现，添加Category，添加如下代码：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"UIViewController+Statistics.h"</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">UIViewController</span> (<span class="title">Statistics</span>)</span></div><div class="line">+ (<span class="keyword">void</span>)load</div><div class="line">&#123;</div><div class="line">    method_exchangeImplementations(class_getInstanceMethod(<span class="keyword">self</span>, <span class="keyword">@selector</span>(viewDidAppear:)), class_getInstanceMethod(<span class="keyword">self</span>, <span class="keyword">@selector</span>(el_viewDidAppear:)));</div><div class="line">    method_exchangeImplementations(class_getInstanceMethod(<span class="keyword">self</span>, <span class="keyword">@selector</span>(viewDidDisappear:)), class_getInstanceMethod(<span class="keyword">self</span>, <span class="keyword">@selector</span>(el_viewDidDisappear:)));</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)el_viewDidAppear:(<span class="built_in">BOOL</span>)animated</div><div class="line">&#123;</div><div class="line">    [<span class="keyword">self</span> el_viewDidAppear:animated];</div><div class="line">    <span class="comment">// 在这里添加进入页面统计代码</span></div><div class="line">    <span class="comment">// 友盟example: [MobClick beginLogPageView:NSStringFromClass([self class])];</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)el_viewDidDisappear:(<span class="built_in">BOOL</span>)animated</div><div class="line">&#123;</div><div class="line">    [<span class="keyword">self</span> el_viewDidDisappear:animated];</div><div class="line">    <span class="comment">// 在这里添加离开页面统计代码</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<hr>
+<p>未完待续</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我这里就不说原理了，目前网络上有很多对原理介绍特别深入的博客。我这里就总结下我实际开发当中应用到的实际场景。&lt;/p&gt;
+&lt;h3 id=&quot;1-统计埋点&quot;&gt;&lt;a href=&quot;#1-统计埋点&quot; class=&quot;headerlink&quot; title=&quot;1. 统计埋点&quot;&gt;&lt;/a&gt;1. 统计
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Autolayout Tips</title>
