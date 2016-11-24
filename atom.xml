@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-23T16:58:30.000Z</updated>
+  <updated>2016-11-24T02:50:55.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/11/23/2016-11-24%20Autolayout%20Tips/"/>
     <id>http://yoursite.com/2016/11/23/2016-11-24 Autolayout Tips/</id>
     <published>2016-11-23T15:00:01.000Z</published>
-    <updated>2016-11-23T16:58:30.000Z</updated>
+    <updated>2016-11-24T02:50:55.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近Xib+Autolayout用的比较多，也学习到不少内容，在这里总结出来。</p>
 <h4 id="Label布局"><a href="#Label布局" class="headerlink" title="Label布局"></a>Label布局<a id="more"></a></h4><p>一般情况下，只需设置其左边距、上边距约束即可。<br><img src="/images/14799173962097.jpg" alt="-w400"></p>
@@ -31,6 +31,10 @@
 <li>选中需要的view</li>
 <li>点击工具栏中的Editor -&gt; Embed in -&gt; View<br>另外ScrollView、StackView也可同样操作。</li>
 </ol>
+<h4 id="自定义Xib-TableViewCell"><a href="#自定义Xib-TableViewCell" class="headerlink" title="自定义Xib TableViewCell"></a>自定义Xib TableViewCell</h4><p>创建cell，勾选Also create XIB file。<br><img src="/images/14799555492340.jpg" alt=""><br>设置Identifier与文件同名。<br>然后添加Categary,添加一个类方法:</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"UITableViewCell+XibCell.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">UITableViewCell</span> (<span class="title">XibCell</span>)</span></div><div class="line">+ (<span class="keyword">id</span>)cell:(<span class="built_in">UITableView</span> *)tableView&#123;</div><div class="line">    <span class="built_in">NSString</span> *identifier = <span class="built_in">NSStringFromClass</span>(<span class="keyword">self</span>);</div><div class="line">    <span class="built_in">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier:identifier];</div><div class="line">    <span class="keyword">if</span>(cell == <span class="literal">nil</span>)&#123;</div><div class="line">        cell = [[<span class="built_in">NSBundle</span> mainBundle]loadNibNamed:identifier owner:<span class="literal">nil</span> options:<span class="literal">nil</span>].firstObject;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> cell;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>完工。<br>之后所有的自定义 xib cell都可以直接调用:</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CustomCell * cell = [CustomCell cell:<span class="literal">self</span>.<span class="built_in">table</span>View];</div></pre></td></tr></table></figure>
 <hr>
 <p>未完待续</p>
 ]]></content>
