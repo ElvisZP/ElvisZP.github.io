@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://elviszp.github.io/2016/11/24/2016-11-24/</loc>
+    <loc>https://elviszp.github.io/2016/11/23/2016-11-24%20Autolayout%20Tips/</loc>
     
-    <lastmod>2016-11-26T15:58:56.000Z</lastmod>
+    <lastmod>2016-11-26T16:40:15.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://elviszp.github.io/2016/11/26/2016-11-26%20%E6%B5%85%E8%B0%88GCD/</loc>
     
-    <lastmod>2016-11-26T15:58:40.000Z</lastmod>
+    <lastmod>2016-11-26T16:40:05.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://elviszp.github.io/2016/11/24/2016-11-24/</loc>
+    
+    <lastmod>2016-11-26T16:39:54.000Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>https://elviszp.github.io/2016/11/23/2016-11-23%20%E6%94%B9%E5%8F%98/</loc>
     
     <lastmod>2016-11-26T13:51:09.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://elviszp.github.io/2016/11/23/2016-11-24%20Autolayout%20Tips/</loc>
-    
-    <lastmod>2016-11-26T13:51:08.000Z</lastmod>
     
   </url>
   
