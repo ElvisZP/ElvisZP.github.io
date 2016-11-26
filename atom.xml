@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-26T13:51:21.000Z</updated>
+  <updated>2016-11-26T14:03:01.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>浅谈GCD的理解</title>
-    <link href="http://yoursite.com/2016/11/26/2016-11-26%20%E6%B5%85%E8%B0%88GCD%E7%9A%84%E7%90%86%E8%A7%A3/"/>
-    <id>http://yoursite.com/2016/11/26/2016-11-26 浅谈GCD的理解/</id>
+    <title>浅谈GCD</title>
+    <link href="http://yoursite.com/2016/11/26/2016-11-26%20%E6%B5%85%E8%B0%88GCD/"/>
+    <id>http://yoursite.com/2016/11/26/2016-11-26 浅谈GCD/</id>
     <published>2016-11-26T03:31:01.000Z</published>
-    <updated>2016-11-26T13:51:21.000Z</updated>
+    <updated>2016-11-26T14:03:01.000Z</updated>
     
     <content type="html"><![CDATA[<p>在iOS上使用多线程的方式有NSTread、NSOperationQueue、GCD，平时使用最多的就是GCD，使用起来也是最方便的，它提供了非常简洁的API来使用繁杂的多线程编程。<br>多线程的使用也会造成很多问题，比如数据竞争、死锁、线程过多导致内存过大以及切换线程影响性能。所以，在使用多线程编程的时候需要特别注意这些问题。<br>不过GCD是有系统来调度线程，所以它的效率会更好一些。</p>
 <p>我们先来了解这几个概念：</p>
