@@ -4,9 +4,9 @@
   <subtitle>记录成长</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://elviszp.github.io/"/>
   <updated>2016-11-26T14:03:01.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://elviszp.github.io/</id>
   
   <author>
     <name>zhang peng</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>浅谈GCD</title>
-    <link href="http://yoursite.com/2016/11/26/2016-11-26%20%E6%B5%85%E8%B0%88GCD/"/>
-    <id>http://yoursite.com/2016/11/26/2016-11-26 浅谈GCD/</id>
+    <link href="https://elviszp.github.io/2016/11/26/2016-11-26%20%E6%B5%85%E8%B0%88GCD/"/>
+    <id>https://elviszp.github.io/2016/11/26/2016-11-26 浅谈GCD/</id>
     <published>2016-11-26T03:31:01.000Z</published>
     <updated>2016-11-26T14:03:01.000Z</updated>
     
@@ -85,14 +85,14 @@
     </summary>
     
     
-      <category term="GCD" scheme="http://yoursite.com/tags/GCD/"/>
+      <category term="GCD" scheme="https://elviszp.github.io/tags/GCD/"/>
     
   </entry>
   
   <entry>
     <title>Runtime 具体使用场景</title>
-    <link href="http://yoursite.com/2016/11/24/2016-11-24/"/>
-    <id>http://yoursite.com/2016/11/24/2016-11-24/</id>
+    <link href="https://elviszp.github.io/2016/11/24/2016-11-24/"/>
+    <id>https://elviszp.github.io/2016/11/24/2016-11-24/</id>
     <published>2016-11-24T03:31:01.000Z</published>
     <updated>2016-11-26T13:50:44.000Z</updated>
     
@@ -115,14 +115,14 @@
     </summary>
     
     
-      <category term="Runtime" scheme="http://yoursite.com/tags/Runtime/"/>
+      <category term="Runtime" scheme="https://elviszp.github.io/tags/Runtime/"/>
     
   </entry>
   
   <entry>
     <title>Autolayout Tips</title>
-    <link href="http://yoursite.com/2016/11/23/2016-11-24%20Autolayout%20Tips/"/>
-    <id>http://yoursite.com/2016/11/23/2016-11-24 Autolayout Tips/</id>
+    <link href="https://elviszp.github.io/2016/11/23/2016-11-24%20Autolayout%20Tips/"/>
+    <id>https://elviszp.github.io/2016/11/23/2016-11-24 Autolayout Tips/</id>
     <published>2016-11-23T15:00:01.000Z</published>
     <updated>2016-11-26T13:51:08.000Z</updated>
     
@@ -151,14 +151,14 @@
     </summary>
     
     
-      <category term="Autolayout" scheme="http://yoursite.com/tags/Autolayout/"/>
+      <category term="Autolayout" scheme="https://elviszp.github.io/tags/Autolayout/"/>
     
   </entry>
   
   <entry>
     <title>改变</title>
-    <link href="http://yoursite.com/2016/11/23/2016-11-23%20%E6%94%B9%E5%8F%98/"/>
-    <id>http://yoursite.com/2016/11/23/2016-11-23 改变/</id>
+    <link href="https://elviszp.github.io/2016/11/23/2016-11-23%20%E6%94%B9%E5%8F%98/"/>
+    <id>https://elviszp.github.io/2016/11/23/2016-11-23 改变/</id>
     <published>2016-11-23T03:56:49.000Z</published>
     <updated>2016-11-26T13:51:09.000Z</updated>
     
