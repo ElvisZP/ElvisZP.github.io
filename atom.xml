@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-26T13:42:00.000Z</updated>
+  <updated>2016-11-26T13:44:41.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/11/26/2016-11-26%20%E6%B5%85%E8%B0%88GCD%E7%9A%84%E7%90%86%E8%A7%A3/"/>
     <id>http://yoursite.com/2016/11/26/2016-11-26 浅谈GCD的理解/</id>
     <published>2016-11-26T03:31:01.000Z</published>
-    <updated>2016-11-26T13:42:00.000Z</updated>
+    <updated>2016-11-26T13:44:41.000Z</updated>
     
     <content type="html"><![CDATA[<p>在iOS上使用多线程的方式有NSTread、NSOperationQueue、GCD，平时使用最多的就是GCD，使用起来也是最方便的，它提供了非常简洁的API来使用繁杂的多线程编程。<br>多线程的使用也会造成很多问题，比如数据竞争、死锁、线程过多导致内存过大以及切换线程影响性能。所以，在使用多线程编程的时候需要特别注意这些问题。<br>不过GCD是有系统来调度线程，所以它的效率会更好一些。</p>
 <p>我们先来了解这几个概念：</p>
@@ -85,7 +85,7 @@
     </summary>
     
     
-      <category term="GCD iOS" scheme="http://yoursite.com/tags/GCD-iOS/"/>
+      <category term="GCD,iOS" scheme="http://yoursite.com/tags/GCD-iOS/"/>
     
   </entry>
   
@@ -94,7 +94,7 @@
     <link href="http://yoursite.com/2016/11/24/2016-11-24/"/>
     <id>http://yoursite.com/2016/11/24/2016-11-24/</id>
     <published>2016-11-24T03:31:01.000Z</published>
-    <updated>2016-11-26T13:41:52.000Z</updated>
+    <updated>2016-11-26T13:44:06.000Z</updated>
     
     <content type="html"><![CDATA[<p>我这里就不说原理了，目前网络上有很多对原理介绍特别深入的博客。我这里就总结下我实际开发当中应用到的实际场景。</p>
 <h3 id="1-Method-Swizzling"><a href="#1-Method-Swizzling" class="headerlink" title="1. Method Swizzling"></a>1. Method Swizzling</h3><p>在实际应用中，会有需要统计实际应用路径的需求，一般都会在所有页面的viewDidAppear和viewDidDisappear事件中添加统计。<br>那么这种情况下，每个页面都去添加肯定是最低效的做法，这个时候，Runtime的功能就能发挥出来了。<br>通过+load和Method Swizzling即可实现，添加Category，添加如下代码：</p>
@@ -115,7 +115,7 @@
     </summary>
     
     
-      <category term="Runtime iOS" scheme="http://yoursite.com/tags/Runtime-iOS/"/>
+      <category term="Runtime,iOS" scheme="http://yoursite.com/tags/Runtime-iOS/"/>
     
   </entry>
   
@@ -124,7 +124,7 @@
     <link href="http://yoursite.com/2016/11/23/2016-11-24%20Autolayout%20Tips/"/>
     <id>http://yoursite.com/2016/11/23/2016-11-24 Autolayout Tips/</id>
     <published>2016-11-23T15:00:01.000Z</published>
-    <updated>2016-11-26T13:41:47.000Z</updated>
+    <updated>2016-11-26T13:44:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近Xib+Autolayout用的比较多，也学习到不少内容，在这里总结出来。</p>
 <h3 id="Label布局"><a href="#Label布局" class="headerlink" title="Label布局"></a>Label布局</h3><p>一般情况下，只需设置其左边距、上边距约束即可。<a id="more"></a><br><img src="/images/14799173962097.jpg" alt="-w400"></p>
@@ -151,7 +151,7 @@
     </summary>
     
     
-      <category term="Autolayout iOS" scheme="http://yoursite.com/tags/Autolayout-iOS/"/>
+      <category term="Autolayout,iOS" scheme="http://yoursite.com/tags/Autolayout-iOS/"/>
     
   </entry>
   
@@ -160,7 +160,7 @@
     <link href="http://yoursite.com/2016/11/23/2016-11-23%20%E6%94%B9%E5%8F%98/"/>
     <id>http://yoursite.com/2016/11/23/2016-11-23 改变/</id>
     <published>2016-11-23T03:56:49.000Z</published>
-    <updated>2016-11-23T04:29:04.000Z</updated>
+    <updated>2016-11-26T13:44:13.000Z</updated>
     
     <content type="html"><![CDATA[<p>自从11年开始编码，至今5年。前面两三年处于摸索阶段，没什么成长。最近两年，或多或少积累了点开发经验，由于不善于表达，之前都是断断续续的记在笔记里，没有形成体系，也影响了个人的技术成长。<br><a id="more"></a><br>在这个时间点上，还是打算做出一点改变，即使大部分内容网上都已有相关文章，也需要总结出来，算是强迫自己写点东西，做出改变。</p>
 ]]></content>
