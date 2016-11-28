@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://elviszp.github.io/"/>
-  <updated>2016-11-28T17:00:06.000Z</updated>
+  <updated>2016-11-26T16:40:05.000Z</updated>
   <id>https://elviszp.github.io/</id>
   
   <author>
@@ -14,90 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>ELProgressView备忘</title>
-    <link href="https://elviszp.github.io/2016/11/26/2016-11-28%20ELProgressView%E5%A4%87%E5%BF%98/"/>
-    <id>https://elviszp.github.io/2016/11/26/2016-11-28 ELProgressView备忘/</id>
-    <published>2016-11-26T03:31:01.000Z</published>
-    <updated>2016-11-28T17:00:06.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>之前有做一个需要圆形进度条的项目，现在提交到Github上去了：<a href="https://github.com/ElvisZP/ELCircleProgressView" target="_blank" rel="external">https://github.com/ElvisZP/ELCircleProgressView</a> 。<br>总结一下里面用到的知识点，没什么难度，仅当做备忘。另外后续会添加Cocoapod、Carthage支持。</p>
-<h3 id="CALayer"><a href="#CALayer" class="headerlink" title="CALayer"></a>CALayer</h3><p>CALayer和UIView的关系</p>
-<blockquote>
-<p>每一个UIView都有一个CALayer实例的图层属性，UIView的职责就是创建并管理这个CALayer。实际上，CALayer才是真正用来在屏幕上显示以及做动画，UIView仅仅是对它的一个封装。UIView处理事件。这样做，为了职责分离。<br><a id="more"></a></p>
-</blockquote>
-<p>我们对视图大部分的操作都能通过UIView暴露出来的API来实现，不过有一些高级特性需要直接使用CALayer提供的方法：圆角、阴影、边框操作等。<br>CALayer有一个delegate属性，实现了CALayerDelegate协议，当UIView创建它时，它会自动把图层delegate指向UIView。</p>
-<p>当我们单独使用CALayer时，如果需要响应触摸事件，一般使用-hitTest:方法即可。</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</div><div class="line">&#123;</div><div class="line">    <span class="comment">//get touch position</span></div><div class="line">    <span class="built_in">CGPoint</span> point = [[touches anyObject] locationInView:<span class="keyword">self</span>.view];</div><div class="line">    <span class="comment">//get touched layer</span></div><div class="line">    <span class="built_in">CALayer</span> *layer = [<span class="keyword">self</span>.layerView.layer hitTest:point];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="CAShapeLayer"><a href="#CAShapeLayer" class="headerlink" title="CAShapeLayer"></a>CAShapeLayer</h3><p>CAShapeLayer是CALayer的子类，但是它比CALayer更加灵活，可以画出各种图形。与使用Core Graphics画图相比，CAShapeLayer有以下优点：</p>
-<ul>
-<li>渲染快速，CAShapeLayer使用了硬件加速。</li>
-<li>高效使用内存。</li>
-<li>不会被辩解裁剪。</li>
-</ul>
-<p>使用方法：</p>
-<ol>
-<li>创建图层</li>
-<li>设置属性、添加path</li>
-<li>添加到目标图层里<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CAShapeLayer</span> *circleLayer = [[<span class="built_in">CAShapeLayer</span> alloc] init];</div><div class="line">circleLayer.strokeEnd = <span class="number">0</span>;</div><div class="line">circleLayer.strokeStart = <span class="number">0</span>;</div><div class="line">circleLayer.fillColor = [<span class="built_in">UIColor</span> clearColor].CGColor;</div><div class="line">circleLayer.lineCap = kCALineCapRound;</div><div class="line">circleLayer.lineJoin = kCALineJoinRound;</div><div class="line">circleLayer.borderColor = [<span class="built_in">UIColor</span> clearColor].CGColor;</div><div class="line"></div><div class="line"><span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPathWithArcCenter:<span class="built_in">CGPointMake</span>(width/<span class="number">2</span>, height/<span class="number">2</span>) radius:width/<span class="number">2</span> startAngle:<span class="keyword">self</span>.startAngle endAngle:<span class="keyword">self</span>.endAngle clockwise:<span class="literal">true</span>];</div><div class="line">circleLayer.frame = <span class="keyword">self</span>.view.bounds;</div><div class="line">circleLayer.strokeColor = <span class="keyword">self</span>.foreStrokeColor.CGColor;</div><div class="line">circleLayer.path = [<span class="keyword">self</span> shapeLayerPath].CGPath;</div><div class="line">circleLayer.lineWidth = <span class="keyword">self</span>.lineWidth;</div><div class="line"></div><div class="line">[<span class="keyword">self</span>.view.layer addSublayer: circleLayer];</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="NSTimer"><a href="#NSTimer" class="headerlink" title="NSTimer"></a>NSTimer</h3><p>使用方法：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建并添加到runloop中</span></div><div class="line">timer = [NSTimer <span class="string">scheduledTimerWithTimeInterval:</span><span class="number">1</span> <span class="string">target:</span>self <span class="string">selector:</span><span class="meta">@selector</span>(ticker) <span class="string">userInfo:</span>nil <span class="string">repeats:</span>NO]; </div><div class="line"></div><div class="line"><span class="comment">//只创建，需要自己手动添加到指定runloop中工作</span></div><div class="line">_timer = [NSTimer <span class="string">timerWithTimeInterval:</span><span class="number">0.1</span> <span class="string">target:</span>self <span class="string">selector:</span><span class="meta">@selector</span>(changeProgress) <span class="string">userInfo:</span>nil <span class="string">repeats:</span><span class="literal">true</span>];</div><div class="line">        [[NSRunLoop currentRunLoop] <span class="string">addTimer:</span>_timer <span class="string">forMode:</span>NSRunLoopCommonModes];</div></pre></td></tr></table></figure>
-<p>注意点：</p>
-<ul>
-<li>内存泄漏</li>
-</ul>
-<blockquote>
-<p>timer会强引用传入的对象，所以一定不要在dealloc方法中调用结束方法，我一般是在viewDidDisappear中销毁对象</p>
-</blockquote>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)<span class="string">viewDidAppear:</span>(BOOL)animated&#123;</div><div class="line">    [<span class="keyword">super</span> <span class="string">viewDidAppear:</span>animated];</div><div class="line">    <span class="keyword">if</span>(_timer == nil)&#123;</div><div class="line">        _timer = [NSTimer <span class="string">scheduledTimerWithTimeInterval:</span><span class="number">2</span> <span class="string">target:</span>self <span class="string">selector:</span><span class="meta">@selector</span>(changeProgress) <span class="string">userInfo:</span>nil <span class="string">repeats:</span><span class="literal">true</span>];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">-(<span class="keyword">void</span>)<span class="string">viewDidDisappear:</span>(BOOL)animated&#123;</div><div class="line">    [<span class="keyword">super</span> <span class="string">viewDidDisappear:</span>animated];</div><div class="line">    <span class="keyword">if</span>(_timer != nil)&#123;</div><div class="line">        [_timer invalidate];</div><div class="line">        _timer = nil;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>Runloop</li>
-</ul>
-<blockquote>
-<p>NSTimer需要添加到runloop中才能运行。另外NSTimer默认是加入到NSDefaultRunLoopMode下的，所以在UITableView(UIScrollView)滑动时，NSTimer也是不工作的。如果需要滑动状态下也继续工作，就需要手动添加。</p>
-</blockquote>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)<span class="string">viewDidAppear:</span>(BOOL)animated&#123;</div><div class="line">    [<span class="keyword">super</span> <span class="string">viewDidAppear:</span>animated];</div><div class="line">    <span class="keyword">if</span>(_timer == nil)&#123;</div><div class="line">        _timer = [NSTimer <span class="string">timerWithTimeInterval:</span><span class="number">0.1</span> <span class="string">target:</span>self <span class="string">selector:</span><span class="meta">@selector</span>(changeProgress) <span class="string">userInfo:</span>nil <span class="string">repeats:</span><span class="literal">true</span>];</div><div class="line">        [[NSRunLoop currentRunLoop] <span class="string">addTimer:</span>_timer <span class="string">forMode:</span>NSRunLoopCommonModes];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="layoutSubviews"><a href="#layoutSubviews" class="headerlink" title="layoutSubviews"></a>layoutSubviews</h3><p>调用场景：</p>
-<ol>
-<li>addSubview</li>
-<li>设置frame(值发生了变化)</li>
-<li>滚动UIScrollView</li>
-<li>旋转Screen会触发父UIView上的layoutSubviews</li>
-<li>改变一个UIView的大小，也会触发父UIView的layoutSubViews</li>
-<li>直接调用setLayoutSubviews</li>
-</ol>
-<p>如果要立即刷新，那么先调用view.setNeedsLayout()标记，然后调用view.layoutIfNeeded()</p>
-<hr>
-<p>参考：</p>
-<ul>
-<li><a href="https://book.douban.com/subject/25716177/" target="_blank" rel="external">iOS Core Animation: Advanced Techniques</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;之前有做一个需要圆形进度条的项目，现在提交到Github上去了：&lt;a href=&quot;https://github.com/ElvisZP/ELCircleProgressView&quot;&gt;https://github.com/ElvisZP/ELCircleProgressView&lt;/a&gt; 。&lt;br&gt;总结一下里面用到的知识点，没什么难度，仅当做备忘。另外后续会添加Cocoapod、Carthage支持。&lt;/p&gt;
-&lt;h3 id=&quot;CALayer&quot;&gt;&lt;a href=&quot;#CALayer&quot; class=&quot;headerlink&quot; title=&quot;CALayer&quot;&gt;&lt;/a&gt;CALayer&lt;/h3&gt;&lt;p&gt;CALayer和UIView的关系&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;每一个UIView都有一个CALayer实例的图层属性，UIView的职责就是创建并管理这个CALayer。实际上，CALayer才是真正用来在屏幕上显示以及做动画，UIView仅仅是对它的一个封装。UIView处理事件。这样做，为了职责分离。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="iOS" scheme="https://elviszp.github.io/tags/iOS/"/>
-    
-      <category term="ELProgressView" scheme="https://elviszp.github.io/tags/ELProgressView/"/>
-    
-      <category term="CALayer" scheme="https://elviszp.github.io/tags/CALayer/"/>
-    
-      <category term="NSTimer" scheme="https://elviszp.github.io/tags/NSTimer/"/>
-    
-      <category term="layoutSubviews" scheme="https://elviszp.github.io/tags/layoutSubviews/"/>
-    
-  </entry>
   
   <entry>
     <title>浅谈GCD</title>
@@ -173,6 +89,92 @@
       <category term="iOS" scheme="https://elviszp.github.io/tags/iOS/"/>
     
       <category term="GCD" scheme="https://elviszp.github.io/tags/GCD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ELProgressView备忘</title>
+    <link href="https://elviszp.github.io/2016/11/26/2016-11-28%20ELProgressView%E5%A4%87%E5%BF%98/"/>
+    <id>https://elviszp.github.io/2016/11/26/2016-11-28 ELProgressView备忘/</id>
+    <published>2016-11-26T03:31:01.000Z</published>
+    <updated>2016-11-28T17:00:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前有做一个需要圆形进度条的项目，现在提交到Github上去了：<a href="https://github.com/ElvisZP/ELCircleProgressView" target="_blank" rel="external">https://github.com/ElvisZP/ELCircleProgressView</a> 。<br>总结一下里面用到的知识点，没什么难度，仅当做备忘。另外后续会添加Cocoapod、Carthage支持。</p>
+<h3 id="CALayer"><a href="#CALayer" class="headerlink" title="CALayer"></a>CALayer</h3><p>CALayer和UIView的关系</p>
+<blockquote>
+<p>每一个UIView都有一个CALayer实例的图层属性，UIView的职责就是创建并管理这个CALayer。实际上，CALayer才是真正用来在屏幕上显示以及做动画，UIView仅仅是对它的一个封装。UIView处理事件。这样做，为了职责分离。</p>
+</blockquote>
+<a id="more"></a>
+<p>我们对视图大部分的操作都能通过UIView暴露出来的API来实现，不过有一些高级特性需要直接使用CALayer提供的方法：圆角、阴影、边框操作等。<br>CALayer有一个delegate属性，实现了CALayerDelegate协议，当UIView创建它时，它会自动把图层delegate指向UIView。</p>
+<p>当我们单独使用CALayer时，如果需要响应触摸事件，一般使用-hitTest:方法即可。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</div><div class="line">&#123;</div><div class="line">    <span class="comment">//get touch position</span></div><div class="line">    <span class="built_in">CGPoint</span> point = [[touches anyObject] locationInView:<span class="keyword">self</span>.view];</div><div class="line">    <span class="comment">//get touched layer</span></div><div class="line">    <span class="built_in">CALayer</span> *layer = [<span class="keyword">self</span>.layerView.layer hitTest:point];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="CAShapeLayer"><a href="#CAShapeLayer" class="headerlink" title="CAShapeLayer"></a>CAShapeLayer</h3><p>CAShapeLayer是CALayer的子类，但是它比CALayer更加灵活，可以画出各种图形。与使用Core Graphics画图相比，CAShapeLayer有以下优点：</p>
+<ul>
+<li>渲染快速，CAShapeLayer使用了硬件加速。</li>
+<li>高效使用内存。</li>
+<li>不会被辩解裁剪。</li>
+</ul>
+<p>使用方法：</p>
+<ol>
+<li>创建图层</li>
+<li>设置属性、添加path</li>
+<li>添加到目标图层里<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CAShapeLayer</span> *circleLayer = [[<span class="built_in">CAShapeLayer</span> alloc] init];</div><div class="line">circleLayer.strokeEnd = <span class="number">0</span>;</div><div class="line">circleLayer.strokeStart = <span class="number">0</span>;</div><div class="line">circleLayer.fillColor = [<span class="built_in">UIColor</span> clearColor].CGColor;</div><div class="line">circleLayer.lineCap = kCALineCapRound;</div><div class="line">circleLayer.lineJoin = kCALineJoinRound;</div><div class="line">circleLayer.borderColor = [<span class="built_in">UIColor</span> clearColor].CGColor;</div><div class="line"></div><div class="line"><span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPathWithArcCenter:<span class="built_in">CGPointMake</span>(width/<span class="number">2</span>, height/<span class="number">2</span>) radius:width/<span class="number">2</span> startAngle:<span class="keyword">self</span>.startAngle endAngle:<span class="keyword">self</span>.endAngle clockwise:<span class="literal">true</span>];</div><div class="line">circleLayer.frame = <span class="keyword">self</span>.view.bounds;</div><div class="line">circleLayer.strokeColor = <span class="keyword">self</span>.foreStrokeColor.CGColor;</div><div class="line">circleLayer.path = [<span class="keyword">self</span> shapeLayerPath].CGPath;</div><div class="line">circleLayer.lineWidth = <span class="keyword">self</span>.lineWidth;</div><div class="line"></div><div class="line">[<span class="keyword">self</span>.view.layer addSublayer: circleLayer];</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="NSTimer"><a href="#NSTimer" class="headerlink" title="NSTimer"></a>NSTimer</h3><p>使用方法：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建并添加到runloop中</span></div><div class="line">timer = [NSTimer <span class="string">scheduledTimerWithTimeInterval:</span><span class="number">1</span> <span class="string">target:</span>self <span class="string">selector:</span><span class="meta">@selector</span>(ticker) <span class="string">userInfo:</span>nil <span class="string">repeats:</span>NO]; </div><div class="line"></div><div class="line"><span class="comment">//只创建，需要自己手动添加到指定runloop中工作</span></div><div class="line">_timer = [NSTimer <span class="string">timerWithTimeInterval:</span><span class="number">0.1</span> <span class="string">target:</span>self <span class="string">selector:</span><span class="meta">@selector</span>(changeProgress) <span class="string">userInfo:</span>nil <span class="string">repeats:</span><span class="literal">true</span>];</div><div class="line">        [[NSRunLoop currentRunLoop] <span class="string">addTimer:</span>_timer <span class="string">forMode:</span>NSRunLoopCommonModes];</div></pre></td></tr></table></figure>
+<p>注意点：</p>
+<ul>
+<li>内存泄漏</li>
+</ul>
+<blockquote>
+<p>timer会强引用传入的对象，所以一定不要在dealloc方法中调用结束方法，我一般是在viewDidDisappear中销毁对象</p>
+</blockquote>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)<span class="string">viewDidAppear:</span>(BOOL)animated&#123;</div><div class="line">    [<span class="keyword">super</span> <span class="string">viewDidAppear:</span>animated];</div><div class="line">    <span class="keyword">if</span>(_timer == nil)&#123;</div><div class="line">        _timer = [NSTimer <span class="string">scheduledTimerWithTimeInterval:</span><span class="number">2</span> <span class="string">target:</span>self <span class="string">selector:</span><span class="meta">@selector</span>(changeProgress) <span class="string">userInfo:</span>nil <span class="string">repeats:</span><span class="literal">true</span>];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">-(<span class="keyword">void</span>)<span class="string">viewDidDisappear:</span>(BOOL)animated&#123;</div><div class="line">    [<span class="keyword">super</span> <span class="string">viewDidDisappear:</span>animated];</div><div class="line">    <span class="keyword">if</span>(_timer != nil)&#123;</div><div class="line">        [_timer invalidate];</div><div class="line">        _timer = nil;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>Runloop</li>
+</ul>
+<blockquote>
+<p>NSTimer需要添加到runloop中才能运行。另外NSTimer默认是加入到NSDefaultRunLoopMode下的，所以在UITableView(UIScrollView)滑动时，NSTimer也是不工作的。如果需要滑动状态下也继续工作，就需要手动添加。</p>
+</blockquote>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">-(<span class="keyword">void</span>)<span class="string">viewDidAppear:</span>(BOOL)animated&#123;</div><div class="line">    [<span class="keyword">super</span> <span class="string">viewDidAppear:</span>animated];</div><div class="line">    <span class="keyword">if</span>(_timer == nil)&#123;</div><div class="line">        _timer = [NSTimer <span class="string">timerWithTimeInterval:</span><span class="number">0.1</span> <span class="string">target:</span>self <span class="string">selector:</span><span class="meta">@selector</span>(changeProgress) <span class="string">userInfo:</span>nil <span class="string">repeats:</span><span class="literal">true</span>];</div><div class="line">        [[NSRunLoop currentRunLoop] <span class="string">addTimer:</span>_timer <span class="string">forMode:</span>NSRunLoopCommonModes];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="layoutSubviews"><a href="#layoutSubviews" class="headerlink" title="layoutSubviews"></a>layoutSubviews</h3><p>调用场景：</p>
+<ol>
+<li>addSubview</li>
+<li>设置frame(值发生了变化)</li>
+<li>滚动UIScrollView</li>
+<li>旋转Screen会触发父UIView上的layoutSubviews</li>
+<li>改变一个UIView的大小，也会触发父UIView的layoutSubViews</li>
+<li>直接调用setLayoutSubviews</li>
+</ol>
+<p>如果要立即刷新，那么先调用view.setNeedsLayout()标记，然后调用view.layoutIfNeeded()</p>
+<hr>
+<p>参考：</p>
+<ul>
+<li><a href="https://book.douban.com/subject/25716177/" target="_blank" rel="external">iOS Core Animation: Advanced Techniques</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;之前有做一个需要圆形进度条的项目，现在提交到Github上去了：&lt;a href=&quot;https://github.com/ElvisZP/ELCircleProgressView&quot;&gt;https://github.com/ElvisZP/ELCircleProgressView&lt;/a&gt; 。&lt;br&gt;总结一下里面用到的知识点，没什么难度，仅当做备忘。另外后续会添加Cocoapod、Carthage支持。&lt;/p&gt;
+&lt;h3 id=&quot;CALayer&quot;&gt;&lt;a href=&quot;#CALayer&quot; class=&quot;headerlink&quot; title=&quot;CALayer&quot;&gt;&lt;/a&gt;CALayer&lt;/h3&gt;&lt;p&gt;CALayer和UIView的关系&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;每一个UIView都有一个CALayer实例的图层属性，UIView的职责就是创建并管理这个CALayer。实际上，CALayer才是真正用来在屏幕上显示以及做动画，UIView仅仅是对它的一个封装。UIView处理事件。这样做，为了职责分离。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="https://elviszp.github.io/tags/iOS/"/>
+    
+      <category term="ELProgressView" scheme="https://elviszp.github.io/tags/ELProgressView/"/>
+    
+      <category term="CALayer" scheme="https://elviszp.github.io/tags/CALayer/"/>
+    
+      <category term="NSTimer" scheme="https://elviszp.github.io/tags/NSTimer/"/>
+    
+      <category term="layoutSubviews" scheme="https://elviszp.github.io/tags/layoutSubviews/"/>
     
   </entry>
   

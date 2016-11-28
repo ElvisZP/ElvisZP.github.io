@@ -73,8 +73,6 @@
 
 
 
-  
-
 
   <link rel="alternate" href="/atom.xml" title="ElvisZP" type="application/atom+xml" />
 
@@ -100,7 +98,7 @@ CALayerCALayer和UIView的关系
 CALayerCALayer和UIView的关系
 
 每一个UIView都有一个CALayer实例的图层属性，UIView的职责就是创">
-<meta property="og:updated_time" content="2016-11-28T17:00:06.000Z">
+<meta property="og:updated_time" content="2016-11-28T17:00:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ELProgressView备忘">
 <meta name="twitter:description" content="之前有做一个需要圆形进度条的项目，现在提交到Github上去了：https://github.com/ElvisZP/ELCircleProgressView 。总结一下里面用到的知识点，没什么难度，仅当做备忘。另外后续会添加Cocoapod、Carthage支持。
@@ -334,8 +332,9 @@ CALayerCALayer和UIView的关系
         <p>之前有做一个需要圆形进度条的项目，现在提交到Github上去了：<a href="https://github.com/ElvisZP/ELCircleProgressView" target="_blank" rel="external">https://github.com/ElvisZP/ELCircleProgressView</a> 。<br>总结一下里面用到的知识点，没什么难度，仅当做备忘。另外后续会添加Cocoapod、Carthage支持。</p>
 <h3 id="CALayer"><a href="#CALayer" class="headerlink" title="CALayer"></a>CALayer</h3><p>CALayer和UIView的关系</p>
 <blockquote>
-<p>每一个UIView都有一个CALayer实例的图层属性，UIView的职责就是创建并管理这个CALayer。实际上，CALayer才是真正用来在屏幕上显示以及做动画，UIView仅仅是对它的一个封装。UIView处理事件。这样做，为了职责分离。<br><a id="more"></a></p>
+<p>每一个UIView都有一个CALayer实例的图层属性，UIView的职责就是创建并管理这个CALayer。实际上，CALayer才是真正用来在屏幕上显示以及做动画，UIView仅仅是对它的一个封装。UIView处理事件。这样做，为了职责分离。</p>
 </blockquote>
+<a id="more"></a>
 <p>我们对视图大部分的操作都能通过UIView暴露出来的API来实现，不过有一些高级特性需要直接使用CALayer提供的方法：圆角、阴影、边框操作等。<br>CALayer有一个delegate属性，实现了CALayerDelegate协议，当UIView创建它时，它会自动把图层delegate指向UIView。</p>
 <p>当我们单独使用CALayer时，如果需要响应触摸事件，一般使用-hitTest:方法即可。</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</div><div class="line">&#123;</div><div class="line">    <span class="comment">//get touch position</span></div><div class="line">    <span class="built_in">CGPoint</span> point = [[touches anyObject] locationInView:<span class="keyword">self</span>.view];</div><div class="line">    <span class="comment">//get touched layer</span></div><div class="line">    <span class="built_in">CALayer</span> *layer = [<span class="keyword">self</span>.layerView.layer hitTest:point];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -424,8 +423,8 @@ CALayerCALayer和UIView的关系
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/26/2016-11-26 浅谈GCD/" rel="next" title="浅谈GCD">
-                <i class="fa fa-chevron-left"></i> 浅谈GCD
+              <a href="/2016/11/24/2016-11-24/" rel="next" title="Runtime 具体使用场景">
+                <i class="fa fa-chevron-left"></i> Runtime 具体使用场景
               </a>
             
           </div>
@@ -433,6 +432,10 @@ CALayerCALayer和UIView的关系
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/26/2016-11-26 浅谈GCD/" rel="prev" title="浅谈GCD">
+                浅谈GCD <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
