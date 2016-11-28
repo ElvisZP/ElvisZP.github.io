@@ -68,10 +68,12 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS,ELProgressView,CALayer,NSTimer,layoutSubviews," />
 
 
 
+
+  
 
 
   <link rel="alternate" href="/atom.xml" title="ElvisZP" type="application/atom+xml" />
@@ -86,12 +88,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="ElvisZP">
-<meta property="og:url" content="https://elviszp.github.io/index.html">
+<meta name="description" content="之前有做一个需要圆形进度条的项目，现在提交到Github上去了：https://github.com/ElvisZP/ELCircleProgressView 。总结一下里面用到的知识点，没什么难度，仅当做备忘。另外后续会添加Cocoapod、Carthage支持。
+CALayerCALayer和UIView的关系
+
+每一个UIView都有一个CALayer实例的图层属性，UIView的职责就是创">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ELProgressView备忘">
+<meta property="og:url" content="https://elviszp.github.io/2016/11/26/2016-11-28 ELProgressView备忘/index.html">
 <meta property="og:site_name" content="ElvisZP">
+<meta property="og:description" content="之前有做一个需要圆形进度条的项目，现在提交到Github上去了：https://github.com/ElvisZP/ELCircleProgressView 。总结一下里面用到的知识点，没什么难度，仅当做备忘。另外后续会添加Cocoapod、Carthage支持。
+CALayerCALayer和UIView的关系
+
+每一个UIView都有一个CALayer实例的图层属性，UIView的职责就是创">
+<meta property="og:updated_time" content="2016-11-28T16:58:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ElvisZP">
+<meta name="twitter:title" content="ELProgressView备忘">
+<meta name="twitter:description" content="之前有做一个需要圆形进度条的项目，现在提交到Github上去了：https://github.com/ElvisZP/ELCircleProgressView 。总结一下里面用到的知识点，没什么难度，仅当做备忘。另外后续会添加Cocoapod、Carthage支持。
+CALayerCALayer和UIView的关系
+
+每一个UIView都有一个CALayer实例的图层属性，UIView的职责就是创">
 
 
 
@@ -119,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://elviszp.github.io/"/>
+  <link rel="canonical" href="https://elviszp.github.io/2016/11/26/2016-11-28 ELProgressView备忘/"/>
 
 
 
 
 
-  <title> ElvisZP </title>
+  <title> ELProgressView备忘 | ElvisZP </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -146,9 +161,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,9 +240,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -262,10 +275,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/11/26/2016-11-28 ELProgressView备忘/" itemprop="url">
-                  ELProgressView备忘
-                </a>
+                ELProgressView备忘
               
             
           </h1>
@@ -321,9 +331,7 @@
       
 
       
-        
-          
-            <p>之前有做一个需要圆形进度条的项目，现在提交到Github上去了：<a href="https://github.com/ElvisZP/ELCircleProgressView" target="_blank" rel="external">https://github.com/ElvisZP/ELCircleProgressView</a> 。<br>总结一下里面用到的知识点，没什么难度，仅当做备忘。另外后续会添加Cocoapod、Carthage支持。</p>
+        <p>之前有做一个需要圆形进度条的项目，现在提交到Github上去了：<a href="https://github.com/ElvisZP/ELCircleProgressView" target="_blank" rel="external">https://github.com/ElvisZP/ELCircleProgressView</a> 。<br>总结一下里面用到的知识点，没什么难度，仅当做备忘。另外后续会添加Cocoapod、Carthage支持。</p>
 <h3 id="CALayer"><a href="#CALayer" class="headerlink" title="CALayer"></a>CALayer</h3><p>CALayer和UIView的关系</p>
 <blockquote>
 <p>每一个UIView都有一个CALayer实例的图层属性，UIView的职责就是创建并管理这个CALayer。实际上，CALayer才是真正用来在屏幕上显示以及做动画，UIView仅仅是对它的一个封装。UIView处理事件。这样做，为了职责分离。</p>
@@ -377,553 +385,70 @@
 <li><a href="https://book.douban.com/subject/25716177/" target="_blank" rel="external">iOS Core Animation: Advanced Techniques</a></li>
 </ul>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://elviszp.github.io/2016/11/26/2016-11-26 浅谈GCD/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="zhang peng">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/avatar/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="ElvisZP">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="ElvisZP" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/26/2016-11-26 浅谈GCD/" itemprop="url">
-                  浅谈GCD
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-26T11:31:01+08:00">
-                2016-11-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/11/26/2016-11-26 浅谈GCD/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/26/2016-11-26 浅谈GCD/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
+            <a href="/tags/ELProgressView/" rel="tag"># ELProgressView</a>
           
-
+            <a href="/tags/CALayer/" rel="tag"># CALayer</a>
           
-
+            <a href="/tags/NSTimer/" rel="tag"># NSTimer</a>
           
+            <a href="/tags/layoutSubviews/" rel="tag"># layoutSubviews</a>
           
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>在iOS上使用多线程的方式有NSTread、NSOperationQueue、GCD，平时使用最多的就是GCD，使用起来也是最方便的，它提供了非常简洁的API来使用繁杂的多线程编程。<br>多线程的使用也会造成很多问题，比如数据竞争、死锁、线程过多导致内存过大以及切换线程影响性能。所以，在使用多线程编程的时候需要特别注意这些问题。<br>不过GCD是有系统来调度线程，所以它的效率会更好一些。</p>
-<p>我们先来了解这几个概念：</p>
-<p><strong>Dispatch Queue</strong><br>它是一个任务的操作队列，如果你要执行一个任务，那么就将它添加到一个适当的dispatch queue中。<br>dispatch queue有两种操作模式，并行与串行。每个程序系统自动提供了两种默认的queue，一种是串行的main queue(运行在主线程)，一种是并行的global queue，系统提供了获取方法。<br>除此之外，系统也提供了api来创建不同的dispatch queue。<br>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/26/2016-11-26 浅谈GCD/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/26/2016-11-26 浅谈GCD/" rel="next" title="浅谈GCD">
+                <i class="fa fa-chevron-left"></i> 浅谈GCD
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://elviszp.github.io/2016/11/24/2016-11-24/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="zhang peng">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/avatar/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="ElvisZP">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="ElvisZP" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/24/2016-11-24/" itemprop="url">
-                  Runtime 具体使用场景
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-24T11:31:01+08:00">
-                2016-11-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/11/24/2016-11-24/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/24/2016-11-24/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>我这里就不说原理了，目前网络上有很多对原理介绍特别深入的博客。我这里就总结下我实际开发当中应用到的实际场景。</p>
-<h3 id="1-Method-Swizzling"><a href="#1-Method-Swizzling" class="headerlink" title="1. Method Swizzling"></a>1. Method Swizzling</h3><p>在实际应用中，会有需要统计实际应用路径的需求，一般都会在所有页面的viewDidAppear和viewDidDisappear事件中添加统计。<br>那么这种情况下，每个页面都去添加肯定是最低效的做法，这个时候，Runtime的功能就能发挥出来了。<br>通过+load和Method Swizzling即可实现，添加Category，添加如下代码：<br>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/24/2016-11-24/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://elviszp.github.io/2016/11/23/2016-11-24 Autolayout Tips/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="zhang peng">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/avatar/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="ElvisZP">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="ElvisZP" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/23/2016-11-24 Autolayout Tips/" itemprop="url">
-                  Autolayout Tips
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-23T23:00:01+08:00">
-                2016-11-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/11/23/2016-11-24 Autolayout Tips/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/23/2016-11-24 Autolayout Tips/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>最近Xib+Autolayout用的比较多，也学习到不少内容，在这里总结出来。</p>
-<h3 id="Label布局"><a href="#Label布局" class="headerlink" title="Label布局"></a>Label布局</h3><p>一般情况下，只需设置其左边距、上边距约束即可。
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/23/2016-11-24 Autolayout Tips/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://elviszp.github.io/2016/11/23/2016-11-23 改变/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="zhang peng">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/avatar/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="ElvisZP">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="ElvisZP" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/23/2016-11-23 改变/" itemprop="url">
-                  改变
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-23T11:56:49+08:00">
-                2016-11-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/11/23/2016-11-23 改变/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/23/2016-11-23 改变/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>自从11年开始编码，至今5年。前面两三年处于摸索阶段，没什么成长。最近两年，或多或少积累了点开发经验，由于不善于表达，之前都是断断续续的记在笔记里，没有形成体系，也影响了个人的技术成长。<br>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/23/2016-11-23 改变/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -931,6 +456,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/26/2016-11-28 ELProgressView备忘/"
+           data-title="ELProgressView备忘" data-url="https://elviszp.github.io/2016/11/26/2016-11-28 ELProgressView备忘/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -950,8 +483,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/avatar/avatar.jpg"
@@ -1024,6 +566,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#CALayer"><span class="nav-number">1.</span> <span class="nav-text">CALayer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CAShapeLayer"><span class="nav-number">2.</span> <span class="nav-text">CAShapeLayer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSTimer"><span class="nav-number">3.</span> <span class="nav-text">NSTimer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#layoutSubviews"><span class="nav-number">4.</span> <span class="nav-text">layoutSubviews</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
@@ -1129,6 +687,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
