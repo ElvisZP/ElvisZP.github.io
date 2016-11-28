@@ -100,7 +100,7 @@ CALayerCALayer和UIView的关系
 CALayerCALayer和UIView的关系
 
 每一个UIView都有一个CALayer实例的图层属性，UIView的职责就是创">
-<meta property="og:updated_time" content="2016-11-28T16:58:08.000Z">
+<meta property="og:updated_time" content="2016-11-28T17:00:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ELProgressView备忘">
 <meta name="twitter:description" content="之前有做一个需要圆形进度条的项目，现在提交到Github上去了：https://github.com/ElvisZP/ELCircleProgressView 。总结一下里面用到的知识点，没什么难度，仅当做备忘。另外后续会添加Cocoapod、Carthage支持。
@@ -334,7 +334,7 @@ CALayerCALayer和UIView的关系
         <p>之前有做一个需要圆形进度条的项目，现在提交到Github上去了：<a href="https://github.com/ElvisZP/ELCircleProgressView" target="_blank" rel="external">https://github.com/ElvisZP/ELCircleProgressView</a> 。<br>总结一下里面用到的知识点，没什么难度，仅当做备忘。另外后续会添加Cocoapod、Carthage支持。</p>
 <h3 id="CALayer"><a href="#CALayer" class="headerlink" title="CALayer"></a>CALayer</h3><p>CALayer和UIView的关系</p>
 <blockquote>
-<p>每一个UIView都有一个CALayer实例的图层属性，UIView的职责就是创建并管理这个CALayer。实际上，CALayer才是真正用来在屏幕上显示以及做动画，UIView仅仅是对它的一个封装。UIView处理事件。这样做，为了职责分离。</p>
+<p>每一个UIView都有一个CALayer实例的图层属性，UIView的职责就是创建并管理这个CALayer。实际上，CALayer才是真正用来在屏幕上显示以及做动画，UIView仅仅是对它的一个封装。UIView处理事件。这样做，为了职责分离。<br><a id="more"></a></p>
 </blockquote>
 <p>我们对视图大部分的操作都能通过UIView暴露出来的API来实现，不过有一些高级特性需要直接使用CALayer提供的方法：圆角、阴影、边框操作等。<br>CALayer有一个delegate属性，实现了CALayerDelegate协议，当UIView创建它时，它会自动把图层delegate指向UIView。</p>
 <p>当我们单独使用CALayer时，如果需要响应触摸事件，一般使用-hitTest:方法即可。</p>
