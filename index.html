@@ -325,8 +325,7 @@
           <p>之前有做一个需要圆形进度条的项目，现在提交到Github上去了：<a href="https://github.com/ElvisZP/ELCircleProgressView">https://github.com/ElvisZP/ELCircleProgressView</a> 。<br>总结一下里面用到的知识点，没什么难度，仅当做备忘。另外后续会添加Cocoapod、Carthage支持。</p>
 <h3 id="CALayer"><a href="#CALayer" class="headerlink" title="CALayer"></a>CALayer</h3><p>CALayer和UIView的关系</p>
 <blockquote>
-<p>每一个UIView都有一个CALayer实例的图层属性，UIView的职责就是创建并管理这个CALayer。实际上，CALayer才是真正用来在屏幕上显示以及做动画，UIView仅仅是对它的一个封装。UIView处理事件。这样做，为了职责分离。</p>
-</blockquote>
+<p>每一个UIView都有一个CALayer实例的图层属性，UIView的职责就是创建并管理这个CALayer。实际上，CALayer才是真正用来处理图层的渲染以及动画的，UIView仅仅是对它的一个封装。UIView集成UIResponder处理事件。这样做，为了职责分离，方便底层Core Animation能够在OSX和iOS上重用。
           <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/11/29/2016-11-28 ELProgressView备忘/#more" rel="contents">
