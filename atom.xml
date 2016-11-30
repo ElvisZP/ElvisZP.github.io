@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://elviszp.github.io/"/>
-  <updated>2016-11-29T04:29:29.000Z</updated>
+  <updated>2016-11-30T03:31:37.000Z</updated>
   <id>https://elviszp.github.io/</id>
   
   <author>
@@ -16,11 +16,59 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>GPUImage使用总结（一）</title>
+    <link href="https://elviszp.github.io/2016/11/30/2016-11-30/"/>
+    <id>https://elviszp.github.io/2016/11/30/2016-11-30/</id>
+    <published>2016-11-30T03:02:01.000Z</published>
+    <updated>2016-11-30T03:31:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>###GPUImage导入<br>Github：<a href="https://github.com/BradLarson/GPUImage" target="_blank" rel="external">https://github.com/BradLarson/GPUImage</a><br><strong>1.CocoaPods导入。</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">pod</span> <span class="string">'GPUImage'</span></div></pre></td></tr></table></figure>
+<p><strong>2.手动导入。</strong></p>
+<blockquote>
+<p>将GPUImage.xcodeproj拖入项目， Embedded Binaries添加GPUImage.framework依赖。另外再添加以下5依赖项：</p>
+<ul>
+<li>CoreMedia</li>
+<li>CoreVideo</li>
+<li>OpenGLES</li>
+<li>AVFoundation</li>
+<li>QuartzCore</li>
+</ul>
+</blockquote>
+<h3 id="GPUImage-结构"><a href="#GPUImage-结构" class="headerlink" title="GPUImage 结构"></a>GPUImage 结构</h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">-<span class="ruby"> Sources</span></div><div class="line">	-<span class="ruby"> <span class="symbol">GPUImagePicture:</span> 静态图片</span></div><div class="line">	-<span class="ruby"> <span class="symbol">GPUImageMovie:</span> 静态视频</span></div><div class="line">	-<span class="ruby"> <span class="symbol">GPUImageStillCamera:</span> 实时照片拍摄</span></div><div class="line">	-<span class="ruby"> <span class="symbol">GPUImageVideoCamera:</span> 实时视频拍摄</span></div><div class="line">-<span class="ruby"> Pipeline</span></div><div class="line">	-<span class="ruby"> GPUImageFilterPipeline</span></div><div class="line">-<span class="ruby"> Filters</span></div><div class="line">	-<span class="ruby"> Color <span class="symbol">adjustments:</span> 颜色处理相关</span></div><div class="line">	-<span class="ruby"> Image <span class="symbol">processing:</span> 图像处理相关</span></div><div class="line">	-<span class="ruby"> Blending <span class="symbol">modes:</span> 混合模式相关</span></div><div class="line">	-<span class="ruby"> Visual <span class="symbol">effects:</span> 视觉效果相关</span></div><div class="line">	-<span class="ruby"> Custom <span class="symbol">filters:</span> 允许用户自定义滤镜</span></div><div class="line">-<span class="ruby"> Outputs</span></div><div class="line">	-<span class="ruby"> GPUImageView</span></div></pre></td></tr></table></figure>
+<p><strong>GPUImage使用流程：</strong></p>
+<ol>
+<li>获取数据源，GPUImage提供了4种数据来源渠道。</li>
+<li>添加滤镜。(如果需要使用多个滤镜，可以使用GPUImage提供的GPUImageFilterPipeline来添加)</li>
+<li>数据输出。</li>
+</ol>
+<h3 id="滤镜初步使用"><a href="#滤镜初步使用" class="headerlink" title="滤镜初步使用"></a>滤镜初步使用</h3><p><strong>import头文件</strong></p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//收到导入framework时使用</span></div><div class="line">#<span class="keyword">import</span> &lt;GPUImage/GPUImageFramework.h&gt;</div><div class="line"><span class="comment">//导入libGUPImage.a或者CocoaPods导入时使用</span></div><div class="line">#<span class="keyword">import</span> <span class="string">"GPUImage.h"</span></div></pre></td></tr></table></figure>
+<p><strong>静态图片，单个滤镜</strong></p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</div><div class="line">    [<span class="keyword">super</span> viewDidLoad];</div><div class="line">    </div><div class="line">   <span class="comment">//获取本地图片</span></div><div class="line">    UIImage *inputImage = [UIImage imageNamed:@<span class="string">"2"</span>];</div><div class="line">	<span class="comment">//创建Filter，在头文件里能看到有很多种GPUImage提供的滤镜。</span></div><div class="line">    GPUImageVignetteFilter *<span class="built_in">filter</span> = [[GPUImageVignetteFilter alloc] init];</div><div class="line">    <span class="comment">//设置要渲染的区域</span></div><div class="line">    [<span class="built_in">filter</span> forceProcessingAtSize:inputImage.<span class="built_in">size</span>];</div><div class="line">    [<span class="built_in">filter</span> useNextFrameForImageCapture];</div><div class="line">    <span class="comment">//获取数据源</span></div><div class="line">    GPUImagePicture *stillImageSource = [[GPUImagePicture alloc]initWithImage:inputImage];</div><div class="line">    <span class="comment">//添加滤镜</span></div><div class="line">    [stillImageSource addTarget:<span class="built_in">filter</span>];</div><div class="line">    <span class="comment">//开始渲染</span></div><div class="line">    [stillImageSource processImage];</div><div class="line">    <span class="comment">//获取渲染后的图片</span></div><div class="line">    UIImage *newImage = [<span class="built_in">filter</span> imageFromCurrentFramebuffer];</div><div class="line">    UIImageView *imageView = [[UIImageView alloc] initWithImage:newImage];</div><div class="line">    imageView.frame = CGRectMake(<span class="number">0</span>,<span class="number">50</span>,inputImage.<span class="built_in">size</span>.<span class="built_in">width</span> ,inputImage.<span class="built_in">size</span>.<span class="built_in">height</span>);</div><div class="line">    [self.view addSubview:imageView];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>实时视频拍摄，使用Pipeline</strong></p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">-(void)video&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line">     创建视频源</div><div class="line">     sessionPreset:屏幕分辨率</div><div class="line">     cameraPosition:摄像头位置</div><div class="line">     */</div><div class="line">    <span class="symbol">_videoCamera</span> = [[<span class="symbol">GPUImageVideoCamera</span> alloc] initWithSessionPreset:<span class="symbol">AVCaptureSessionPresetHigh</span> cameraPosition:<span class="symbol">AVCaptureDevicePositionFront</span>];</div><div class="line">    <span class="symbol">_videoCamera</span>.outputImageOrientation = <span class="symbol">UIInterfaceOrientationPortrait</span>;</div><div class="line"></div><div class="line">    // 创建最终预览<span class="symbol">View</span></div><div class="line">    <span class="symbol">_captureVideoPreview</span> = [[<span class="symbol">GPUImageView</span> alloc] initWithFrame:self.view.bounds];</div><div class="line">    [self.view insertSubview:<span class="symbol">_captureVideoPreview</span> atIndex:<span class="number">0</span>];</div><div class="line">    </div><div class="line">    <span class="symbol">GPUImageBilateralFilter</span> *bilateralFilter = [[<span class="symbol">GPUImageBilateralFilter</span> alloc] init];</div><div class="line">    <span class="symbol">GPUImageFilterPipeline</span> *pipeline = [[<span class="symbol">GPUImageFilterPipeline</span> alloc] initWithOrderedFilters:@[bilateralFilter] input:<span class="symbol">_videoCamera</span> output:<span class="symbol">_captureVideoPreview</span>];</div><div class="line">        <span class="symbol">GPUImageSepiaFilter</span> *sepiaFilter = [[<span class="symbol">GPUImageSepiaFilter</span> alloc] init];</div><div class="line">    [pipeline addFilter:sepiaFilter];</div><div class="line">    //可添加多个滤镜</div><div class="line">    [<span class="symbol">_videoCamera</span> startCameraCapture];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;###GPUImage导入&lt;br&gt;Github：&lt;a href=&quot;https://github.com/BradLarson/GPUImage&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/BradLarson/GPU
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="https://elviszp.github.io/tags/iOS/"/>
+    
+      <category term="GPUImage" scheme="https://elviszp.github.io/tags/GPUImage/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ELProgressView备忘</title>
     <link href="https://elviszp.github.io/2016/11/29/2016-11-28%20ELProgressView%E5%A4%87%E5%BF%98/"/>
     <id>https://elviszp.github.io/2016/11/29/2016-11-28 ELProgressView备忘/</id>
     <published>2016-11-28T17:02:01.000Z</published>
-    <updated>2016-11-29T04:29:29.000Z</updated>
+    <updated>2016-11-29T04:31:18.000Z</updated>
     
     <content type="html"><![CDATA[<p>之前有做一个需要圆形进度条的项目，现在提交到Github上去了：<a href="https://github.com/ElvisZP/ELCircleProgressView" target="_blank" rel="external">https://github.com/ElvisZP/ELCircleProgressView</a> 。<br>总结一下里面用到的知识点，没什么难度，仅当做备忘。另外后续会添加Cocoapod、Carthage支持。</p>
 <h3 id="CALayer"><a href="#CALayer" class="headerlink" title="CALayer"></a>CALayer</h3><p>CALayer和UIView的关系</p>
@@ -71,7 +119,7 @@
 </ol>
 <p>如果要立即刷新，那么先调用view.setNeedsLayout()标记，然后调用view.layoutIfNeeded()</p>
 <hr>
-<p>参考：</p>
+<p>参考资料：</p>
 <ul>
 <li><a href="https://book.douban.com/subject/25716177/" target="_blank" rel="external">iOS Core Animation: Advanced Techniques</a></li>
 </ul>
