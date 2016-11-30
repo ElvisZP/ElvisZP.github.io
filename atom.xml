@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://elviszp.github.io/"/>
-  <updated>2016-11-30T14:34:39.000Z</updated>
+  <updated>2016-11-30T14:37:39.000Z</updated>
   <id>https://elviszp.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://elviszp.github.io/2016/11/30/2016-11-30%20ji-suan-ji-wang-luo.html"/>
     <id>https://elviszp.github.io/2016/11/30/2016-11-30 ji-suan-ji-wang-luo.html</id>
     <published>2016-11-30T12:02:01.000Z</published>
-    <updated>2016-11-30T14:34:39.000Z</updated>
+    <updated>2016-11-30T14:37:39.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h3><p>OSI参考模型将分组通信协议整理成容易理解的7个分层：</p>
 <ul>
@@ -41,6 +41,7 @@
 <blockquote>
 <p>将数据传输到目标地址。主要负责寻址和路由选择。根据发送优先权、网络拥堵程度等来决定路由。</p>
 </blockquote>
+<a id="more"></a>
 <ul>
 <li><strong>传输层</strong></li>
 </ul>
@@ -113,7 +114,23 @@
     
       &lt;h3 id=&quot;OSI参考模型&quot;&gt;&lt;a href=&quot;#OSI参考模型&quot; class=&quot;headerlink&quot; title=&quot;OSI参考模型&quot;&gt;&lt;/a&gt;OSI参考模型&lt;/h3&gt;&lt;p&gt;OSI参考模型将分组通信协议整理成容易理解的7个分层：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;物
+&lt;li&gt;&lt;strong&gt;物理层&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;负责将bit流(0、1)转换为电压的高低、脉冲光的闪灭，传输给物理介质。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;数据链路层&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;负责物理层面上的互连的、节点之间的通信传输。 作用是：物理地址寻址(mac地址)、流量控制、重发机制等。负责一个分段内的数据传输。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;网络层&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;将数据传输到目标地址。主要负责寻址和路由选择。根据发送优先权、网络拥堵程度等来决定路由。&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -371,9 +388,9 @@
     </summary>
     
     
-      <category term="Runtime" scheme="https://elviszp.github.io/tags/Runtime/"/>
-    
       <category term="iOS" scheme="https://elviszp.github.io/tags/iOS/"/>
+    
+      <category term="Runtime" scheme="https://elviszp.github.io/tags/Runtime/"/>
     
   </entry>
   
@@ -409,9 +426,9 @@
     </summary>
     
     
-      <category term="iOS" scheme="https://elviszp.github.io/tags/iOS/"/>
-    
       <category term="Autolayout" scheme="https://elviszp.github.io/tags/Autolayout/"/>
+    
+      <category term="iOS" scheme="https://elviszp.github.io/tags/iOS/"/>
     
   </entry>
   
