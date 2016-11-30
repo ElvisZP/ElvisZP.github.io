@@ -68,10 +68,12 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="TCP/IP,计算机网络," />
 
 
 
+
+  
 
 
   <link rel="alternate" href="/atom.xml" title="ElvisZP" type="application/atom+xml" />
@@ -86,16 +88,67 @@
 
 
 
-<meta name="description" content="自从11年开始编码，至今5年。前面两三年处于摸索阶段，没什么成长。最近两年，或多或少积累了点开发经验，由于不善于表达，之前都是断断续续的记在笔记里，没有形成体系，也影响了个人的技术成长。">
+<meta name="description" content="OSI参考模型OSI参考模型将分组通信协议整理成容易理解的7个分层：
+
+物理层
+
+
+负责将bit流(0、1)转换为电压的高低、脉冲光的闪灭，传输给物理介质。
+
+
+数据链路层
+
+
+负责物理层面上的互连的、节点之间的通信传输。 作用是：物理地址寻址(mac地址)、流量控制、重发机制等。负责一个分段内的数据传输。
+
+
+网络层
+
+
+将数据传输到目标地址。主要负责寻址和路由选择。根据发送优先权、网络拥堵程度">
 <meta property="og:type" content="article">
-<meta property="og:title" content="改变">
-<meta property="og:url" content="https://elviszp.github.io/2016/11/23/2016-11-23 gai-bian.html">
+<meta property="og:title" content="计算机网络基础备忘">
+<meta property="og:url" content="https://elviszp.github.io/2016/11/30/2016-11-30 ji-suan-ji-wang-luo.html">
 <meta property="og:site_name" content="ElvisZP">
-<meta property="og:description" content="自从11年开始编码，至今5年。前面两三年处于摸索阶段，没什么成长。最近两年，或多或少积累了点开发经验，由于不善于表达，之前都是断断续续的记在笔记里，没有形成体系，也影响了个人的技术成长。">
-<meta property="og:updated_time" content="2016-11-26T13:51:09.000Z">
+<meta property="og:description" content="OSI参考模型OSI参考模型将分组通信协议整理成容易理解的7个分层：
+
+物理层
+
+
+负责将bit流(0、1)转换为电压的高低、脉冲光的闪灭，传输给物理介质。
+
+
+数据链路层
+
+
+负责物理层面上的互连的、节点之间的通信传输。 作用是：物理地址寻址(mac地址)、流量控制、重发机制等。负责一个分段内的数据传输。
+
+
+网络层
+
+
+将数据传输到目标地址。主要负责寻址和路由选择。根据发送优先权、网络拥堵程度">
+<meta property="og:updated_time" content="2016-11-30T14:34:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="改变">
-<meta name="twitter:description" content="自从11年开始编码，至今5年。前面两三年处于摸索阶段，没什么成长。最近两年，或多或少积累了点开发经验，由于不善于表达，之前都是断断续续的记在笔记里，没有形成体系，也影响了个人的技术成长。">
+<meta name="twitter:title" content="计算机网络基础备忘">
+<meta name="twitter:description" content="OSI参考模型OSI参考模型将分组通信协议整理成容易理解的7个分层：
+
+物理层
+
+
+负责将bit流(0、1)转换为电压的高低、脉冲光的闪灭，传输给物理介质。
+
+
+数据链路层
+
+
+负责物理层面上的互连的、节点之间的通信传输。 作用是：物理地址寻址(mac地址)、流量控制、重发机制等。负责一个分段内的数据传输。
+
+
+网络层
+
+
+将数据传输到目标地址。主要负责寻址和路由选择。根据发送优先权、网络拥堵程度">
 
 
 
@@ -123,13 +176,13 @@
 
 
 
-  <link rel="canonical" href="https://elviszp.github.io/2016/11/23/2016-11-23 gai-bian.html"/>
+  <link rel="canonical" href="https://elviszp.github.io/2016/11/30/2016-11-30 ji-suan-ji-wang-luo.html"/>
 
 
 
 
 
-  <title> 改变 | ElvisZP </title>
+  <title> 计算机网络基础备忘 | ElvisZP </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -240,7 +293,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://elviszp.github.io/2016/11/23/2016-11-23 gai-bian.html">
+  <link itemprop="mainEntityOfPage" href="https://elviszp.github.io/2016/11/30/2016-11-30 ji-suan-ji-wang-luo.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="zhang peng">
@@ -264,7 +317,7 @@
             
             
               
-                改变
+                计算机网络基础备忘
               
             
           </h1>
@@ -277,8 +330,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-23T11:56:49+08:00">
-                2016-11-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-30T20:02:01+08:00">
+                2016-11-30
               </time>
             
 
@@ -293,8 +346,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/11/23/2016-11-23 gai-bian.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/23/2016-11-23 gai-bian.html" itemprop="commentCount"></span>
+                <a href="/2016/11/30/2016-11-30 ji-suan-ji-wang-luo.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/30/2016-11-30 ji-suan-ji-wang-luo.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -320,7 +373,91 @@
       
 
       
-        <p>自从11年开始编码，至今5年。前面两三年处于摸索阶段，没什么成长。最近两年，或多或少积累了点开发经验，由于不善于表达，之前都是断断续续的记在笔记里，没有形成体系，也影响了个人的技术成长。<br><a id="more"></a><br>在这个时间点上，还是打算做出一点改变，即使大部分内容网上都已有相关文章，也需要总结出来，算是强迫自己写点东西，做出改变。</p>
+        <h3 id="OSI参考模型"><a href="#OSI参考模型" class="headerlink" title="OSI参考模型"></a>OSI参考模型</h3><p>OSI参考模型将分组通信协议整理成容易理解的7个分层：</p>
+<ul>
+<li><strong>物理层</strong></li>
+</ul>
+<blockquote>
+<p>负责将bit流(0、1)转换为电压的高低、脉冲光的闪灭，传输给物理介质。</p>
+</blockquote>
+<ul>
+<li><strong>数据链路层</strong></li>
+</ul>
+<blockquote>
+<p>负责物理层面上的互连的、节点之间的通信传输。 作用是：物理地址寻址(mac地址)、流量控制、重发机制等。负责一个分段内的数据传输。</p>
+</blockquote>
+<ul>
+<li><strong>网络层</strong></li>
+</ul>
+<blockquote>
+<p>将数据传输到目标地址。主要负责寻址和路由选择。根据发送优先权、网络拥堵程度等来决定路由。</p>
+</blockquote>
+<ul>
+<li><strong>传输层</strong></li>
+</ul>
+<blockquote>
+<p>管理两个节点之间的数据传输、起可靠传输作用。提供流量控制、监控服务质量。</p>
+</blockquote>
+<ul>
+<li><strong>会话层</strong></li>
+</ul>
+<blockquote>
+<p>负责建立与断开通信连接以及数据分割工作。</p>
+</blockquote>
+<ul>
+<li><strong>表示层</strong></li>
+</ul>
+<blockquote>
+<p>负责网络传输格式 与 应用处理的信息之间的转换。将设备固有格式转换为网络标准传输格式。</p>
+</blockquote>
+<ul>
+<li><strong>应用层</strong></li>
+</ul>
+<blockquote>
+<p>为用户的应用程序提供网络服务。(文件传输、电子邮件、远程登录)</p>
+</blockquote>
+<h3 id="一些基本网络设备"><a href="#一些基本网络设备" class="headerlink" title="一些基本网络设备"></a>一些基本网络设备</h3><p><strong>中继器</strong>： 对收到的0、1波形，进行相应的放大和转发，可以在双绞线电缆和光纤电缆之间进行转换。 对应物理层。<br><strong>网桥(2层交换机)</strong>：识别数据帧、重构数据帧转发，并且能够丢弃错误的数据帧。 对应数据链路层。<br><strong>路由器(3层交换机)</strong>：判断网络路径，转发至目标地址。 对应网络层。<br><strong>4-7层交换机</strong>： 负载均衡器、防火墙、广域网加速器。</p>
+<h3 id="TCP-IP-分层"><a href="#TCP-IP-分层" class="headerlink" title="TCP/IP 分层"></a>TCP/IP 分层</h3><ul>
+<li>物理层(硬件、网络接口)</li>
+<li>互联网层(IP)</li>
+<li>传输层(TCP、UDP)</li>
+<li>应用层(TELNET、SSH、HTTP、SMTP、POP、SSL/TLS、FTP)</li>
+</ul>
+<p>发送端：</p>
+<ol>
+<li>应用层处理：编码处理、管理控制。</li>
+<li>传输层处理：TCP根据应用指示，负责建立连接、发送数据、段考连接。在这里会对数据进行包装，添加TCP首部，包含源端口号和目标端口号、序列、校验和。</li>
+<li>网络层处理：IP会根据TCP传过来的数据，添加上IP首部，会添加上源IP地址和目标IP地址，然后根据目标IP地址，参考路由控制表，发送给对应路由器和主机网络接口的驱动程序。</li>
+<li>物理层处理：添加以太网首部，包含MAC地址。然后发送出去。</li>
+</ol>
+<p>接收端从底至上处理、解析首部文件，校验文件正确性。</p>
+<h3 id="TCP"><a href="#TCP" class="headerlink" title="TCP"></a>TCP</h3><p>TCP是一个面向有连接的协议，实现了数据传输时的各种控制、数据重发机制、对次序乱掉的分包进行顺序控制。<br>TCP通过校验和、序列号、确认应答(ACK)、重发控制、连接管理等机制实现了可靠性管理。</p>
+<p><strong>TCP建立连接过程：</strong></p>
+<ol>
+<li>客户端发送SYN。</li>
+<li>服务端回复ACK和SYN。</li>
+<li>客户端回复ACK。</li>
+</ol>
+<p><em>发送第一个SYN的一方叫做客户端，接收方叫服务端。</em></p>
+<p><strong>断开连接过程</strong></p>
+<ol>
+<li>客户端发送FIN。</li>
+<li>服务端回复ACK。</li>
+<li>服务端发送FIN。</li>
+<li>客户端发送ACK。</li>
+</ol>
+<blockquote>
+<p>SYN：请求建立连接。<br>FIN：请求断开连接。<br>ACK：确认应答。</p>
+</blockquote>
+<hr>
+<p>关于TCP/IP的具体实现就不总结了，需要的时候在翻阅书籍了。<br>IP包括：IP地址、IP多播、子网掩码、路由控制、路由算法、IP分割处理及再构成处理、IPv6、IP首部。相关的有DNS、ARP。<br>TCP还有其具体实现：序列号和确认应答、超时重发机制、窗口控制、连接管理、流控制、拥塞控制等。</p>
+<p>HTTP协议、网络安全就留到下一篇。</p>
+<hr>
+<p>参考资料：</p>
+<ul>
+<li><a href="https://book.douban.com/subject/1088054/" target="_blank" rel="external">TCP/IP详解 卷1：协议</a></li>
+<li><a href="https://book.douban.com/subject/24737674/" target="_blank" rel="external">图解TCP/IP</a></li>
+</ul>
 
       
     </div>
@@ -342,20 +479,28 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/TCP-IP/" rel="tag"># TCP/IP</a>
+          
+            <a href="/tags/计算机网络/" rel="tag"># 计算机网络</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/30/2016-11-30 GPUImage-zong-jie-1.html" rel="next" title="GPUImage使用总结（一）">
+                <i class="fa fa-chevron-left"></i> GPUImage使用总结（一）
+              </a>
             
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/23/2016-11-24 Autolayout Tips.html" rel="prev" title="Autolayout Tips">
-                Autolayout Tips <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -381,8 +526,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/23/2016-11-23 gai-bian.html"
-           data-title="改变" data-url="https://elviszp.github.io/2016/11/23/2016-11-23 gai-bian.html">
+      <div class="ds-thread" data-thread-key="2016/11/30/2016-11-30 ji-suan-ji-wang-luo.html"
+           data-title="计算机网络基础备忘" data-url="https://elviszp.github.io/2016/11/30/2016-11-30 ji-suan-ji-wang-luo.html">
       </div>
     
   </div>
@@ -406,8 +551,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/avatar/avatar.jpg"
@@ -480,6 +634,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#OSI参考模型"><span class="nav-number">1.</span> <span class="nav-text">OSI参考模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些基本网络设备"><span class="nav-number">2.</span> <span class="nav-text">一些基本网络设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-IP-分层"><span class="nav-number">3.</span> <span class="nav-text">TCP/IP 分层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP"><span class="nav-number">4.</span> <span class="nav-text">TCP</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
