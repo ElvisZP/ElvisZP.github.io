@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Autolayout,iOS," />
+  <meta name="keywords" content="iOS,Runtime," />
 
 
 
@@ -86,27 +86,19 @@
 
 
 
-<meta name="description" content="最近Xib+Autolayout用的比较多，也学习到不少内容，在这里总结出来。
-Label布局一般情况下，只需设置其左边距、上边距约束即可。">
+<meta name="description" content="我这里就不说原理了，目前网络上有很多对原理介绍特别深入的博客。我这里就总结下我实际开发当中应用到的实际场景。
+1. Method Swizzling在实际应用中，会有需要统计实际应用路径的需求，一般都会在所有页面的viewDidAppear和viewDidDisappear事件中添加统计。那么这种情况下，每个页面都去添加肯定是最低效的做法，这个时候，Runtime的功能就能发挥出来了。通过+loa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Autolayout Tips">
-<meta property="og:url" content="https://elviszp.github.io/2016/11/23/2016-11-24 Autolayout Tips/index.html">
+<meta property="og:title" content="Runtime 具体使用场景">
+<meta property="og:url" content="https://elviszp.github.io/2016/11/24/2016-11-24 runtime.html">
 <meta property="og:site_name" content="ElvisZP">
-<meta property="og:description" content="最近Xib+Autolayout用的比较多，也学习到不少内容，在这里总结出来。
-Label布局一般情况下，只需设置其左边距、上边距约束即可。">
-<meta property="og:image" content="https://elviszp.github.io/images/14799173962097.jpg">
-<meta property="og:image" content="https://elviszp.github.io/images/14799182141013.jpg">
-<meta property="og:image" content="https://elviszp.github.io/images/14799189164759.jpg">
-<meta property="og:image" content="https://elviszp.github.io/images/14799190296407.jpg">
-<meta property="og:image" content="https://elviszp.github.io/images/14799191933631.jpg">
-<meta property="og:image" content="https://elviszp.github.io/images/14799192727895.jpg">
-<meta property="og:image" content="https://elviszp.github.io/images/14799555492340.jpg">
-<meta property="og:updated_time" content="2016-11-26T16:45:30.000Z">
+<meta property="og:description" content="我这里就不说原理了，目前网络上有很多对原理介绍特别深入的博客。我这里就总结下我实际开发当中应用到的实际场景。
+1. Method Swizzling在实际应用中，会有需要统计实际应用路径的需求，一般都会在所有页面的viewDidAppear和viewDidDisappear事件中添加统计。那么这种情况下，每个页面都去添加肯定是最低效的做法，这个时候，Runtime的功能就能发挥出来了。通过+loa">
+<meta property="og:updated_time" content="2016-11-26T16:39:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Autolayout Tips">
-<meta name="twitter:description" content="最近Xib+Autolayout用的比较多，也学习到不少内容，在这里总结出来。
-Label布局一般情况下，只需设置其左边距、上边距约束即可。">
-<meta name="twitter:image" content="https://elviszp.github.io/images/14799173962097.jpg">
+<meta name="twitter:title" content="Runtime 具体使用场景">
+<meta name="twitter:description" content="我这里就不说原理了，目前网络上有很多对原理介绍特别深入的博客。我这里就总结下我实际开发当中应用到的实际场景。
+1. Method Swizzling在实际应用中，会有需要统计实际应用路径的需求，一般都会在所有页面的viewDidAppear和viewDidDisappear事件中添加统计。那么这种情况下，每个页面都去添加肯定是最低效的做法，这个时候，Runtime的功能就能发挥出来了。通过+loa">
 
 
 
@@ -134,13 +126,13 @@ Label布局一般情况下，只需设置其左边距、上边距约束即可。
 
 
 
-  <link rel="canonical" href="https://elviszp.github.io/2016/11/23/2016-11-24 Autolayout Tips/"/>
+  <link rel="canonical" href="https://elviszp.github.io/2016/11/24/2016-11-24 runtime.html"/>
 
 
 
 
 
-  <title> Autolayout Tips | ElvisZP </title>
+  <title> Runtime 具体使用场景 | ElvisZP </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -251,7 +243,7 @@ Label布局一般情况下，只需设置其左边距、上边距约束即可。
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://elviszp.github.io/2016/11/23/2016-11-24 Autolayout Tips/">
+  <link itemprop="mainEntityOfPage" href="https://elviszp.github.io/2016/11/24/2016-11-24 runtime.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="zhang peng">
@@ -275,7 +267,7 @@ Label布局一般情况下，只需设置其左边距、上边距约束即可。
             
             
               
-                Autolayout Tips
+                Runtime 具体使用场景
               
             
           </h1>
@@ -288,8 +280,8 @@ Label布局一般情况下，只需设置其左边距、上边距约束即可。
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-23T23:00:01+08:00">
-                2016-11-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-24T11:31:01+08:00">
+                2016-11-24
               </time>
             
 
@@ -304,8 +296,8 @@ Label布局一般情况下，只需设置其左边距、上边距约束即可。
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/11/23/2016-11-24 Autolayout Tips/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/23/2016-11-24 Autolayout Tips/" itemprop="commentCount"></span>
+                <a href="/2016/11/24/2016-11-24 runtime.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/24/2016-11-24 runtime.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -331,19 +323,12 @@ Label布局一般情况下，只需设置其左边距、上边距约束即可。
       
 
       
-        <p>最近Xib+Autolayout用的比较多，也学习到不少内容，在这里总结出来。</p>
-<h3 id="Label布局"><a href="#Label布局" class="headerlink" title="Label布局"></a>Label布局</h3><p>一般情况下，只需设置其左边距、上边距约束即可。<a id="more"></a><br><img src="/images/14799173962097.jpg" alt="-w400"></p>
-<p>我们知道，一般UIView布局，如果仅设置其左边距、上边距约束，那么Xcode就会报错，需要你加上宽高约束。那么为什么UILabel却不会报错呢？原因在于Label是自带内容的View，只要你设置了文本，那么它就能根据内容，自动计算出大小。同理，UIButton也是一样的。<br>另外还有一种特殊情况，就是你需要多行展示文本的时候，这种情况下你就必须设置其宽度或者其右边距，同时将Lines属性设为0，否则它们不知道在什么宽度的情况下换行。如图：<br><img src="/images/14799182141013.jpg" alt="-w400"></p>
-<h3 id="⌘-快捷键"><a href="#⌘-快捷键" class="headerlink" title="⌘ + = 快捷键"></a>⌘ + = 快捷键</h3><p>Command键加=，能够自动将View设为与内容相适应的大小。<br><img src="/images/14799189164759.jpg" alt="-w300"><br>文字有部分未显示出来，此时按下快捷键，快速适应大小。<br>最方便的还是在添加UIImageView的时候，一般你拖出一张图片到xib上是这样的：<br><img src="/images/14799190296407.jpg" alt="-w300"><br>默认就是这样大小，如果此时你有一个小小的icon要加上去，那么效果是这样的：<br><img src="/images/14799191933631.jpg" alt="-w300"><br>一般情况下，你需要的是将UIImageView改为原图大小，那么现在最方便的就是按下快捷键：<br><img src="/images/14799192727895.jpg" alt="-w300"></p>
-<h3 id="合并View"><a href="#合并View" class="headerlink" title="合并View"></a>合并View</h3><p>有时会有这样的情况，需要将页面中几个View合并到同一个SuperView中，简单的方式就是：</p>
-<ol>
-<li>选中需要的view</li>
-<li>点击工具栏中的Editor -&gt; Embed in -&gt; View<br>另外ScrollView、StackView也可同样操作。</li>
-</ol>
-<h3 id="自定义Xib-TableViewCell"><a href="#自定义Xib-TableViewCell" class="headerlink" title="自定义Xib TableViewCell"></a>自定义Xib TableViewCell</h3><p>创建cell，勾选Also create XIB file。<br><img src="/images/14799555492340.jpg" alt=""><br>设置Identifier与文件同名。<br>然后添加Categary,添加一个类方法:</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"UITableViewCell+XibCell.h"</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">UITableViewCell</span> (<span class="title">XibCell</span>)</span></div><div class="line">+ (<span class="keyword">id</span>)cell:(<span class="built_in">UITableView</span> *)tableView&#123;</div><div class="line">    <span class="built_in">NSString</span> *identifier = <span class="built_in">NSStringFromClass</span>(<span class="keyword">self</span>);</div><div class="line">    <span class="built_in">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier:identifier];</div><div class="line">    <span class="keyword">if</span>(cell == <span class="literal">nil</span>)&#123;</div><div class="line">        cell = [[<span class="built_in">NSBundle</span> mainBundle]loadNibNamed:identifier owner:<span class="literal">nil</span> options:<span class="literal">nil</span>].firstObject;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> cell;</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
-<p>完工。<br>之后所有的自定义 xib cell都可以直接调用:</p>
-<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CustomCell * cell = [CustomCell cell:<span class="literal">self</span>.<span class="built_in">table</span>View];</div></pre></td></tr></table></figure>
+        <p>我这里就不说原理了，目前网络上有很多对原理介绍特别深入的博客。我这里就总结下我实际开发当中应用到的实际场景。</p>
+<h3 id="1-Method-Swizzling"><a href="#1-Method-Swizzling" class="headerlink" title="1. Method Swizzling"></a>1. Method Swizzling</h3><p>在实际应用中，会有需要统计实际应用路径的需求，一般都会在所有页面的viewDidAppear和viewDidDisappear事件中添加统计。<br>那么这种情况下，每个页面都去添加肯定是最低效的做法，这个时候，Runtime的功能就能发挥出来了。<br>通过+load和Method Swizzling即可实现，添加Category，添加如下代码：<br><a id="more"></a><br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#import <span class="meta-string">"UIViewController+Statistics.h"</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">UIViewController</span> (<span class="title">Statistics</span>)</span></div><div class="line">+ (<span class="keyword">void</span>)load</div><div class="line">&#123;</div><div class="line">    method_exchangeImplementations(class_getInstanceMethod(<span class="keyword">self</span>, <span class="keyword">@selector</span>(viewDidAppear:)), class_getInstanceMethod(<span class="keyword">self</span>, <span class="keyword">@selector</span>(el_viewDidAppear:)));</div><div class="line">    method_exchangeImplementations(class_getInstanceMethod(<span class="keyword">self</span>, <span class="keyword">@selector</span>(viewDidDisappear:)), class_getInstanceMethod(<span class="keyword">self</span>, <span class="keyword">@selector</span>(el_viewDidDisappear:)));</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)el_viewDidAppear:(<span class="built_in">BOOL</span>)animated</div><div class="line">&#123;</div><div class="line">    [<span class="keyword">self</span> el_viewDidAppear:animated];</div><div class="line">    <span class="comment">// 在这里添加进入页面统计代码</span></div><div class="line">    <span class="comment">// 友盟example: [MobClick beginLogPageView:NSStringFromClass([self class])];</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)el_viewDidDisappear:(<span class="built_in">BOOL</span>)animated</div><div class="line">&#123;</div><div class="line">    [<span class="keyword">self</span> el_viewDidDisappear:animated];</div><div class="line">    <span class="comment">// 在这里添加离开页面统计代码</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure></p>
+<h3 id="Associated-Objects"><a href="#Associated-Objects" class="headerlink" title="Associated Objects"></a>Associated Objects</h3><p>关联对象，作用一般是为现有的类添加实例变量。<br>在一些优秀的第三方框架里会经常使用到他，比如MJRefresh、SDWebImageView。<br>Runtime提供的相关api是：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">objc_setAssociatedObject</span>(<span class="params">id <span class="keyword">object</span>, <span class="keyword">const</span> <span class="keyword">void</span> *key, id <span class="keyword">value</span>, objc_AssociationPolicy policy</span>)</span>;</div><div class="line"><span class="function">id <span class="title">objc_getAssociatedObject</span>(<span class="params">id <span class="keyword">object</span>, <span class="keyword">const</span> <span class="keyword">void</span> *key</span>)</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">objc_removeAssociatedObjects</span>(<span class="params">id <span class="keyword">object</span></span>)</span>;</div></pre></td></tr></table></figure>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">UIImageView</span> (<span class="title">AssociatedObjects</span>)</span></div><div class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *imageUrl;</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="comment">/// ----------------------</span></div><div class="line"></div><div class="line"><span class="meta">#import <span class="meta-string">"UIImageView+AssociatedObjects.h"</span></span></div><div class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="keyword">char</span> imageURLKey;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">UIImageView</span> (<span class="title">AssociatedObjects</span>)</span></div><div class="line"></div><div class="line">-(<span class="built_in">NSString</span> *)imageUrl&#123;</div><div class="line">    <span class="keyword">return</span> objc_getAssociatedObject(<span class="keyword">self</span>, &amp;imageURLKey);</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(<span class="keyword">void</span>)setImageUrl:(<span class="built_in">NSString</span> *)imageUrl&#123;</div><div class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, &amp;imageURLKey, imageUrl, OBJC_ASSOCIATION_COPY_NONATOMIC);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>可参考源代码：<a href="https://github.com/ElvisZP/Runtime-in-action" target="_blank" rel="external">Runtime in action</a></p>
 <hr>
 <p>未完待续</p>
 
@@ -369,9 +354,9 @@ Label布局一般情况下，只需设置其左边距、上边距约束即可。
       
         <div class="post-tags">
           
-            <a href="/tags/Autolayout/" rel="tag"># Autolayout</a>
-          
             <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+            <a href="/tags/Runtime/" rel="tag"># Runtime</a>
           
         </div>
       
@@ -380,8 +365,8 @@ Label布局一般情况下，只需设置其左边距、上边距约束即可。
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/23/2016-11-23 改变/" rel="next" title="改变">
-                <i class="fa fa-chevron-left"></i> 改变
+              <a href="/2016/11/23/2016-11-24 Autolayout Tips.html" rel="next" title="Autolayout Tips">
+                <i class="fa fa-chevron-left"></i> Autolayout Tips
               </a>
             
           </div>
@@ -390,8 +375,8 @@ Label布局一般情况下，只需设置其左边距、上边距约束即可。
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/24/2016-11-24/" rel="prev" title="Runtime 具体使用场景">
-                Runtime 具体使用场景 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/26/2016-11-26 qian-tan-GCD.html" rel="prev" title="浅谈GCD">
+                浅谈GCD <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -418,8 +403,8 @@ Label布局一般情况下，只需设置其左边距、上边距约束即可。
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/23/2016-11-24 Autolayout Tips/"
-           data-title="Autolayout Tips" data-url="https://elviszp.github.io/2016/11/23/2016-11-24 Autolayout Tips/">
+      <div class="ds-thread" data-thread-key="2016/11/24/2016-11-24 runtime.html"
+           data-title="Runtime 具体使用场景" data-url="https://elviszp.github.io/2016/11/24/2016-11-24 runtime.html">
       </div>
     
   </div>
@@ -536,7 +521,7 @@ Label布局一般情况下，只需设置其左边距、上边距约束即可。
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Label布局"><span class="nav-number">1.</span> <span class="nav-text">Label布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#⌘-快捷键"><span class="nav-number">2.</span> <span class="nav-text">⌘ + = 快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并View"><span class="nav-number">3.</span> <span class="nav-text">合并View</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义Xib-TableViewCell"><span class="nav-number">4.</span> <span class="nav-text">自定义Xib TableViewCell</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Method-Swizzling"><span class="nav-number">1.</span> <span class="nav-text">1. Method Swizzling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Associated-Objects"><span class="nav-number">2.</span> <span class="nav-text">Associated Objects</span></a></li></ol></div>
             
 
           </div>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://elviszp.github.io/"/>
-  <updated>2016-11-30T03:32:24.000Z</updated>
+  <updated>2016-11-30T03:41:33.000Z</updated>
   <id>https://elviszp.github.io/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>GPUImage使用总结（一）</title>
-    <link href="https://elviszp.github.io/2016/11/30/2016-11-30/"/>
-    <id>https://elviszp.github.io/2016/11/30/2016-11-30/</id>
+    <link href="https://elviszp.github.io/2016/11/30/2016-11-30%20GPUImage-zong-jie-1.html"/>
+    <id>https://elviszp.github.io/2016/11/30/2016-11-30 GPUImage-zong-jie-1.html</id>
     <published>2016-11-30T03:02:01.000Z</published>
-    <updated>2016-11-30T03:32:24.000Z</updated>
+    <updated>2016-11-30T03:41:33.000Z</updated>
     
     <content type="html"><![CDATA[<p>###GPUImage导入<br>Github：<a href="https://github.com/BradLarson/GPUImage" target="_blank" rel="external">https://github.com/BradLarson/GPUImage</a><br><strong>1.CocoaPods导入。</strong></p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">pod</span> <span class="string">'GPUImage'</span></div></pre></td></tr></table></figure>
@@ -32,10 +32,10 @@
 <li>CoreVideo</li>
 <li>OpenGLES</li>
 <li>AVFoundation</li>
-<li>QuartzCore<a id="more"></a>
-</li>
+<li>QuartzCore</li>
 </ul>
 </blockquote>
+<a id="more"></a>
 <h3 id="GPUImage-结构"><a href="#GPUImage-结构" class="headerlink" title="GPUImage 结构"></a>GPUImage 结构</h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">-<span class="ruby"> Sources</span></div><div class="line">	-<span class="ruby"> <span class="symbol">GPUImagePicture:</span> 静态图片</span></div><div class="line">	-<span class="ruby"> <span class="symbol">GPUImageMovie:</span> 静态视频</span></div><div class="line">	-<span class="ruby"> <span class="symbol">GPUImageStillCamera:</span> 实时照片拍摄</span></div><div class="line">	-<span class="ruby"> <span class="symbol">GPUImageVideoCamera:</span> 实时视频拍摄</span></div><div class="line">-<span class="ruby"> Pipeline</span></div><div class="line">	-<span class="ruby"> GPUImageFilterPipeline</span></div><div class="line">-<span class="ruby"> Filters</span></div><div class="line">	-<span class="ruby"> Color <span class="symbol">adjustments:</span> 颜色处理相关</span></div><div class="line">	-<span class="ruby"> Image <span class="symbol">processing:</span> 图像处理相关</span></div><div class="line">	-<span class="ruby"> Blending <span class="symbol">modes:</span> 混合模式相关</span></div><div class="line">	-<span class="ruby"> Visual <span class="symbol">effects:</span> 视觉效果相关</span></div><div class="line">	-<span class="ruby"> Custom <span class="symbol">filters:</span> 允许用户自定义滤镜</span></div><div class="line">-<span class="ruby"> Outputs</span></div><div class="line">	-<span class="ruby"> GPUImageView</span></div></pre></td></tr></table></figure>
 <p><strong>GPUImage使用流程：</strong></p>
 <ol>
@@ -63,7 +63,9 @@
 &lt;li&gt;CoreVideo&lt;/li&gt;
 &lt;li&gt;OpenGLES&lt;/li&gt;
 &lt;li&gt;AVFoundation&lt;/li&gt;
-&lt;li&gt;QuartzCore
+&lt;li&gt;QuartzCore&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
@@ -76,8 +78,8 @@
   
   <entry>
     <title>ELProgressView备忘</title>
-    <link href="https://elviszp.github.io/2016/11/29/2016-11-28%20ELProgressView%E5%A4%87%E5%BF%98/"/>
-    <id>https://elviszp.github.io/2016/11/29/2016-11-28 ELProgressView备忘/</id>
+    <link href="https://elviszp.github.io/2016/11/29/2016-11-28%20ELProgressView-bei-wang.html"/>
+    <id>https://elviszp.github.io/2016/11/29/2016-11-28 ELProgressView-bei-wang.html</id>
     <published>2016-11-28T17:02:01.000Z</published>
     <updated>2016-11-29T04:31:18.000Z</updated>
     
@@ -160,8 +162,8 @@
   
   <entry>
     <title>浅谈GCD</title>
-    <link href="https://elviszp.github.io/2016/11/26/2016-11-26%20%E6%B5%85%E8%B0%88GCD/"/>
-    <id>https://elviszp.github.io/2016/11/26/2016-11-26 浅谈GCD/</id>
+    <link href="https://elviszp.github.io/2016/11/26/2016-11-26%20qian-tan-GCD.html"/>
+    <id>https://elviszp.github.io/2016/11/26/2016-11-26 qian-tan-GCD.html</id>
     <published>2016-11-26T03:31:01.000Z</published>
     <updated>2016-11-26T16:40:05.000Z</updated>
     
@@ -237,8 +239,8 @@
   
   <entry>
     <title>Runtime 具体使用场景</title>
-    <link href="https://elviszp.github.io/2016/11/24/2016-11-24/"/>
-    <id>https://elviszp.github.io/2016/11/24/2016-11-24/</id>
+    <link href="https://elviszp.github.io/2016/11/24/2016-11-24%20runtime.html"/>
+    <id>https://elviszp.github.io/2016/11/24/2016-11-24 runtime.html</id>
     <published>2016-11-24T03:31:01.000Z</published>
     <updated>2016-11-26T16:39:54.000Z</updated>
     
@@ -268,8 +270,8 @@
   
   <entry>
     <title>Autolayout Tips</title>
-    <link href="https://elviszp.github.io/2016/11/23/2016-11-24%20Autolayout%20Tips/"/>
-    <id>https://elviszp.github.io/2016/11/23/2016-11-24 Autolayout Tips/</id>
+    <link href="https://elviszp.github.io/2016/11/23/2016-11-24%20Autolayout%20Tips.html"/>
+    <id>https://elviszp.github.io/2016/11/23/2016-11-24 Autolayout Tips.html</id>
     <published>2016-11-23T15:00:01.000Z</published>
     <updated>2016-11-26T16:45:30.000Z</updated>
     
@@ -306,8 +308,8 @@
   
   <entry>
     <title>改变</title>
-    <link href="https://elviszp.github.io/2016/11/23/2016-11-23%20%E6%94%B9%E5%8F%98/"/>
-    <id>https://elviszp.github.io/2016/11/23/2016-11-23 改变/</id>
+    <link href="https://elviszp.github.io/2016/11/23/2016-11-23%20gai-bian.html"/>
+    <id>https://elviszp.github.io/2016/11/23/2016-11-23 gai-bian.html</id>
     <published>2016-11-23T03:56:49.000Z</published>
     <updated>2016-11-26T13:51:09.000Z</updated>
     
