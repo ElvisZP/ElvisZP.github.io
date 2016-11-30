@@ -371,9 +371,9 @@
     </summary>
     
     
-      <category term="iOS" scheme="https://elviszp.github.io/tags/iOS/"/>
-    
       <category term="Runtime" scheme="https://elviszp.github.io/tags/Runtime/"/>
+    
+      <category term="iOS" scheme="https://elviszp.github.io/tags/iOS/"/>
     
   </entry>
   
@@ -409,9 +409,9 @@
     </summary>
     
     
-      <category term="Autolayout" scheme="https://elviszp.github.io/tags/Autolayout/"/>
-    
       <category term="iOS" scheme="https://elviszp.github.io/tags/iOS/"/>
+    
+      <category term="Autolayout" scheme="https://elviszp.github.io/tags/Autolayout/"/>
     
   </entry>
   
