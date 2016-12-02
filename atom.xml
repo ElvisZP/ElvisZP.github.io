@@ -388,9 +388,9 @@
     </summary>
     
     
-      <category term="iOS" scheme="https://elviszp.github.io/tags/iOS/"/>
-    
       <category term="Runtime" scheme="https://elviszp.github.io/tags/Runtime/"/>
+    
+      <category term="iOS" scheme="https://elviszp.github.io/tags/iOS/"/>
     
   </entry>
   
@@ -426,25 +426,25 @@
     </summary>
     
     
-      <category term="Autolayout" scheme="https://elviszp.github.io/tags/Autolayout/"/>
-    
       <category term="iOS" scheme="https://elviszp.github.io/tags/iOS/"/>
+    
+      <category term="Autolayout" scheme="https://elviszp.github.io/tags/Autolayout/"/>
     
   </entry>
   
   <entry>
-    <title>改变</title>
-    <link href="https://elviszp.github.io/2016/11/23/2016-11-23%20gai-bian.html"/>
-    <id>https://elviszp.github.io/2016/11/23/2016-11-23 gai-bian.html</id>
+    <title>开始啦</title>
+    <link href="https://elviszp.github.io/2016/11/23/2016-11-23%20start.html"/>
+    <id>https://elviszp.github.io/2016/11/23/2016-11-23 start.html</id>
     <published>2016-11-23T03:56:49.000Z</published>
-    <updated>2016-11-26T13:51:09.000Z</updated>
+    <updated>2016-12-02T02:25:33.000Z</updated>
     
-    <content type="html"><![CDATA[<p>自从11年开始编码，至今5年。前面两三年处于摸索阶段，没什么成长。最近两年，或多或少积累了点开发经验，由于不善于表达，之前都是断断续续的记在笔记里，没有形成体系，也影响了个人的技术成长。<br><a id="more"></a><br>在这个时间点上，还是打算做出一点改变，即使大部分内容网上都已有相关文章，也需要总结出来，算是强迫自己写点东西，做出改变。</p>
+    <content type="html"><![CDATA[<p>自从11年开始编码，至今5年。前面两三年处于摸索阶段，没什么成长。最近两年，或多或少积累了点开发经验，由于不善于表达，之前都是断断续续的记在笔记里，没有形成体系，个人成长不快。<br><a id="more"></a><br>在这个时间点上，还是打算做出一点改变，即使大部分内容网上都已有相关文章，也需要总结出来，算是强迫自己写点东西，做出改变，让自己形成知识体系。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;自从11年开始编码，至今5年。前面两三年处于摸索阶段，没什么成长。最近两年，或多或少积累了点开发经验，由于不善于表达，之前都是断断续续的记在笔记里，没有形成体系，也影响了个人的技术成长。&lt;br&gt;
+      &lt;p&gt;自从11年开始编码，至今5年。前面两三年处于摸索阶段，没什么成长。最近两年，或多或少积累了点开发经验，由于不善于表达，之前都是断断续续的记在笔记里，没有形成体系，个人成长不快。&lt;br&gt;
     
     </summary>
     
