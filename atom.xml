@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://elviszp.github.io/"/>
-  <updated>2016-11-30T14:37:39.000Z</updated>
+  <updated>2016-12-03T09:12:24.000Z</updated>
   <id>https://elviszp.github.io/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Core Animation(一):CALayer</title>
+    <link href="https://elviszp.github.io/2016/12/03/2016-12-03%20Core%20Animation-1.html"/>
+    <id>https://elviszp.github.io/2016/12/03/2016-12-03 Core Animation-1.html</id>
+    <published>2016-12-03T05:02:01.000Z</published>
+    <updated>2016-12-03T09:12:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Core-Animation是什么？"><a href="#Core-Animation是什么？" class="headerlink" title="Core Animation是什么？"></a>Core Animation是什么？</h3><p>通过<a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreAnimation_guide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40004514" target="_blank" rel="external">Core Animation Programming Guide</a>文档我们可以看到，Core Animation不仅仅提供了动画功能，它还是iOS/OS X上负责图形渲染的基础设施。在iOS中，它是通过QuartzCore.framework框架来提供的。<br>下图是文档中提供的架构图，可以看出，Core Animation是基于Core Graphics和OpenGL的封装。</p>
+<p><img src="/images/14807455809639.png" alt=""></p>
+<h3 id="CALayer是什么？"><a href="#CALayer是什么？" class="headerlink" title="CALayer是什么？"></a>CALayer是什么？</h3><p>CALayer是QuartzCore.framework的核心，CALayer管理你需要显示的内容，然后将内容缓存到一副位图当中，最终用户看到的界面，就是CALayer合成之后的结果。<br>到这里我们会有一个疑问，既然CALayer才是真正处理图形渲染和动画效果的，<em>那么我们为什么还需要UIView?</em><br>简单来说，UIView就是对CALayer的简单封装，每个UIView管理维护着一个CSLayer，也就是所谓的backing layer，在UIView创建的时候，会自动创建这个CALayer，同时将CALayer的delegate(动画行为委托)指向该UIView。CALayer负责处理图形渲染和动画效果，UIView负责响应外部事件。这样职责分离，底层的Core Animation代码就能够在iOS和OS X中复用。<br>我们对视图的大部分操作都能通过UIView开放的API来实现，不过有一些高级特性需要直接使用CALayer提供的API：如圆角、阴影、边框等。</p>
+<h3 id="CALayer基本操作"><a href="#CALayer基本操作" class="headerlink" title="CALayer基本操作"></a>CALayer基本操作</h3><p>下面代码是对CALayer的一些基本属性的操作：contents、cornerRadius、masksToBounds、mask。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">-(<span class="keyword">void</span>)testContents&#123;</div><div class="line">    <span class="keyword">self</span>.layerView.layer.contents = (__bridge <span class="keyword">id</span> _Nullable)([<span class="built_in">UIImage</span> imageNamed:<span class="string">@"gyy"</span>].CGImage);</div><div class="line">    <span class="comment">//图片填充类型：类似于UIImageView的contentMode属性</span></div><div class="line">    <span class="keyword">self</span>.layerView.layer.contentsGravity = kCAGravityResizeAspect;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(<span class="keyword">void</span>)testBorder&#123;</div><div class="line">    <span class="keyword">self</span>.layerView.layer.borderColor = [<span class="built_in">UIColor</span> blueColor].CGColor;</div><div class="line">    <span class="keyword">self</span>.layerView.layer.borderWidth = <span class="number">2</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(<span class="keyword">void</span>)testCornerRadius&#123;</div><div class="line">    <span class="comment">//设置圆角会造成离屏渲染，如果页面有多个圆角，则使用CoreGraphcies来进入圆角绘制。</span></div><div class="line">    <span class="keyword">self</span>.layerView.layer.cornerRadius = <span class="number">30</span>;</div><div class="line">    <span class="keyword">self</span>.layerView.layer.masksToBounds = <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(<span class="keyword">void</span>)testMask&#123;</div><div class="line">    <span class="built_in">UIImageView</span> *imageView = [[<span class="built_in">UIImageView</span> alloc]initWithImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"gyy"</span>]];</div><div class="line">    imageView.frame = <span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">50</span>, <span class="number">300</span>, <span class="number">192</span>);</div><div class="line">    [<span class="keyword">self</span>.view addSubview:imageView];</div><div class="line">    </div><div class="line">    <span class="built_in">CALayer</span> *maskLayer = [[<span class="built_in">CALayer</span> alloc]init];</div><div class="line">    maskLayer.contents =(<span class="keyword">id</span>)[[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"logo"</span>] <span class="built_in">CGImage</span>];</div><div class="line">    maskLayer.frame = <span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">40</span>, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line">    imageView.layer.mask = maskLayer;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Core-Animation是什么？&quot;&gt;&lt;a href=&quot;#Core-Animation是什么？&quot; class=&quot;headerlink&quot; title=&quot;Core Animation是什么？&quot;&gt;&lt;/a&gt;Core Animation是什么？&lt;/h3&gt;&lt;p&gt;通过&lt;a h
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="https://elviszp.github.io/tags/iOS/"/>
+    
+      <category term="Core Animation" scheme="https://elviszp.github.io/tags/Core-Animation/"/>
+    
+  </entry>
   
   <entry>
     <title>计算机网络基础备忘</title>
@@ -388,9 +415,9 @@
     </summary>
     
     
-      <category term="Runtime" scheme="https://elviszp.github.io/tags/Runtime/"/>
-    
       <category term="iOS" scheme="https://elviszp.github.io/tags/iOS/"/>
+    
+      <category term="Runtime" scheme="https://elviszp.github.io/tags/Runtime/"/>
     
   </entry>
   
@@ -426,9 +453,9 @@
     </summary>
     
     
-      <category term="iOS" scheme="https://elviszp.github.io/tags/iOS/"/>
-    
       <category term="Autolayout" scheme="https://elviszp.github.io/tags/Autolayout/"/>
+    
+      <category term="iOS" scheme="https://elviszp.github.io/tags/iOS/"/>
     
   </entry>
   
