@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://elviszp.github.io/"/>
-  <updated>2016-12-03T15:41:42.000Z</updated>
+  <updated>2016-12-03T15:51:58.000Z</updated>
   <id>https://elviszp.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://elviszp.github.io/2016/12/03/2016-12-03%20Core%20Animation-2.html"/>
     <id>https://elviszp.github.io/2016/12/03/2016-12-03 Core Animation-2.html</id>
     <published>2016-12-03T14:02:01.000Z</published>
-    <updated>2016-12-03T15:41:42.000Z</updated>
+    <updated>2016-12-03T15:51:58.000Z</updated>
     
     <content type="html"><![CDATA[<p>显式动画的基础是CAAnimation，我们来看看CAAnimation的结构</p>
 <figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-<span class="ruby"> CAAnimation&lt;CAMediaTiming,CAAction&gt;</span></div><div class="line">	-<span class="ruby"> CAAnimationGroup</span></div><div class="line">	-<span class="ruby"> CAPropertAnimation</span></div><div class="line">		-<span class="ruby"> CABasicAnimation</span></div><div class="line">		-<span class="ruby"> CAKeyframeAnimation</span></div><div class="line">	-<span class="ruby"> CATransition</span></div></pre></td></tr></table></figure>
@@ -35,6 +35,8 @@
 <h4 id="CAAnimationGroup"><a href="#CAAnimationGroup" class="headerlink" title="CAAnimationGroup"></a>CAAnimationGroup</h4><p>CAAnimationGroup可以将多个属性动画结合起来。</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">IBAction</span>)clickGroupAnimation:(<span class="keyword">id</span>)sender &#123;</div><div class="line">    <span class="built_in">CAKeyframeAnimation</span> *keyframeAnimation1 = [<span class="built_in">CAKeyframeAnimation</span> animationWithKeyPath:<span class="string">@"backgroundColor"</span>];</div><div class="line">    keyframeAnimation1.values = @[(__bridge <span class="keyword">id</span> _Nullable)([<span class="built_in">UIColor</span> yellowColor].CGColor),(__bridge <span class="keyword">id</span> _Nullable)([<span class="built_in">UIColor</span> blueColor].CGColor),(__bridge <span class="keyword">id</span> _Nullable)([<span class="built_in">UIColor</span> purpleColor].CGColor)];</div><div class="line">    </div><div class="line">    <span class="built_in">CAKeyframeAnimation</span> *keyframeAnimation2 = [<span class="built_in">CAKeyframeAnimation</span> animationWithKeyPath:<span class="string">@"position"</span>];</div><div class="line">    keyframeAnimation2.path = [<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:<span class="keyword">self</span>.explicitLayer.frame cornerRadius:<span class="number">50</span>].CGPath;</div><div class="line">    </div><div class="line">    <span class="built_in">CAAnimationGroup</span> *groupAnimation = [[<span class="built_in">CAAnimationGroup</span> alloc]init];</div><div class="line">    groupAnimation.animations = @[keyframeAnimation1, keyframeAnimation2];</div><div class="line">    groupAnimation.duration = <span class="number">5</span>;</div><div class="line">    groupAnimation.removedOnCompletion = <span class="literal">false</span>;</div><div class="line">    groupAnimation.fillMode = kCAFillModeForwards;</div><div class="line">    [<span class="keyword">self</span>.explicitLayer addAnimation:groupAnimation forKey:<span class="literal">nil</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="CATransition"><a href="#CATransition" class="headerlink" title="CATransition"></a>CATransition</h4><p>过渡动画。</p>
+<hr>
+<p><a href="https://github.com/ElvisZP/CoreAnimationDemo" target="_blank" rel="external">CoreAnimationDemo</a></p>
 ]]></content>
     
     <summary type="html">
@@ -56,7 +58,7 @@
     <link href="https://elviszp.github.io/2016/12/03/2016-12-03%20Core%20Animation-1.html"/>
     <id>https://elviszp.github.io/2016/12/03/2016-12-03 Core Animation-1.html</id>
     <published>2016-12-03T05:02:01.000Z</published>
-    <updated>2016-12-03T15:41:37.000Z</updated>
+    <updated>2016-12-03T15:52:02.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="Core-Animation是什么？"><a href="#Core-Animation是什么？" class="headerlink" title="Core Animation是什么？"></a>Core Animation是什么？</h3><p>通过<a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreAnimation_guide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40004514" target="_blank" rel="external">Core Animation Programming Guide</a>文档我们可以看到，Core Animation不仅仅提供了动画功能，它还是iOS/OS X上负责图形渲染的基础设施。在iOS中，它是通过QuartzCore.framework框架来提供的。<br>下图是文档中提供的架构图，可以看出，Core Animation是基于Core Graphics和OpenGL的封装。</p>
 <p><img src="/images/14807455809639.png" alt=""><br><a id="more"></a></p>
@@ -71,6 +73,8 @@
 </blockquote>
 <figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (IBAction)clickTransaction:(id)sender &#123;</div><div class="line">    [CATransaction <span class="built_in">begin</span>];</div><div class="line">    <span class="comment">//设置动画执行时间。</span></div><div class="line">    [CATransaction setAnimationDuration:<span class="number">5</span>];</div><div class="line">    CGRect frame = self.implicitLayer.frame;</div><div class="line">    frame.<span class="built_in">size</span>.<span class="built_in">width</span> = frame.<span class="built_in">size</span>.<span class="built_in">width</span> * <span class="number">1.2</span>;</div><div class="line">    frame.<span class="built_in">size</span>.<span class="built_in">height</span> = frame.<span class="built_in">size</span>.<span class="built_in">height</span> * <span class="number">1.2</span>;</div><div class="line">    self.implicitLayer.frame = frame;</div><div class="line">    [CATransaction commit];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>begin开始事务，commit提交事务到runloop执行。如果没有显式的调用begin，那么在每个runloop周期循环中属性的改变都会被集中起来，然后做一次0.25秒的动画。</p>
+<hr>
+<p><a href="https://github.com/ElvisZP/CoreAnimationDemo" target="_blank" rel="external">CoreAnimationDemo</a></p>
 ]]></content>
     
     <summary type="html">

@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="ElvisZP">
 <meta property="og:description" content="Core Animation是什么？通过Core Animation Programming Guide文档我们可以看到，Core Animation不仅仅提供了动画功能，它还是iOS/OS X上负责图形渲染的基础设施。在iOS中，它是通过QuartzCore.framework框架来提供的。下图是文档中提供的架构图，可以看出，Core Animation是基于Core Graphics和Open">
 <meta property="og:image" content="https://elviszp.github.io/images/14807455809639.png">
-<meta property="og:updated_time" content="2016-12-03T15:41:37.000Z">
+<meta property="og:updated_time" content="2016-12-03T15:52:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Core Animation总结(一):CALayer">
 <meta name="twitter:description" content="Core Animation是什么？通过Core Animation Programming Guide文档我们可以看到，Core Animation不仅仅提供了动画功能，它还是iOS/OS X上负责图形渲染的基础设施。在iOS中，它是通过QuartzCore.framework框架来提供的。下图是文档中提供的架构图，可以看出，Core Animation是基于Core Graphics和Open">
@@ -335,6 +335,8 @@
 </blockquote>
 <figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (IBAction)clickTransaction:(id)sender &#123;</div><div class="line">    [CATransaction <span class="built_in">begin</span>];</div><div class="line">    <span class="comment">//设置动画执行时间。</span></div><div class="line">    [CATransaction setAnimationDuration:<span class="number">5</span>];</div><div class="line">    CGRect frame = self.implicitLayer.frame;</div><div class="line">    frame.<span class="built_in">size</span>.<span class="built_in">width</span> = frame.<span class="built_in">size</span>.<span class="built_in">width</span> * <span class="number">1.2</span>;</div><div class="line">    frame.<span class="built_in">size</span>.<span class="built_in">height</span> = frame.<span class="built_in">size</span>.<span class="built_in">height</span> * <span class="number">1.2</span>;</div><div class="line">    self.implicitLayer.frame = frame;</div><div class="line">    [CATransaction commit];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>begin开始事务，commit提交事务到runloop执行。如果没有显式的调用begin，那么在每个runloop周期循环中属性的改变都会被集中起来，然后做一次0.25秒的动画。</p>
+<hr>
+<p><a href="https://github.com/ElvisZP/CoreAnimationDemo" target="_blank" rel="external">CoreAnimationDemo</a></p>
 
       
     </div>

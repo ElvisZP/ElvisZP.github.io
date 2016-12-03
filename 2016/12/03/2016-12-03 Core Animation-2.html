@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="ElvisZP">
 <meta property="og:description" content="显式动画的基础是CAAnimation，我们来看看CAAnimation的结构
 123456- CAAnimation&amp;lt;CAMediaTiming,CAAction&amp;gt;	- CAAnimationGroup	- CAPropertAnimation		- CABasicAnimation		- CAKeyframeAnimation	- CATransition">
-<meta property="og:updated_time" content="2016-12-03T15:41:42.000Z">
+<meta property="og:updated_time" content="2016-12-03T15:51:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Core Animation总结(二):显式动画">
 <meta name="twitter:description" content="显式动画的基础是CAAnimation，我们来看看CAAnimation的结构
@@ -338,6 +338,8 @@
 <h4 id="CAAnimationGroup"><a href="#CAAnimationGroup" class="headerlink" title="CAAnimationGroup"></a>CAAnimationGroup</h4><p>CAAnimationGroup可以将多个属性动画结合起来。</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">IBAction</span>)clickGroupAnimation:(<span class="keyword">id</span>)sender &#123;</div><div class="line">    <span class="built_in">CAKeyframeAnimation</span> *keyframeAnimation1 = [<span class="built_in">CAKeyframeAnimation</span> animationWithKeyPath:<span class="string">@"backgroundColor"</span>];</div><div class="line">    keyframeAnimation1.values = @[(__bridge <span class="keyword">id</span> _Nullable)([<span class="built_in">UIColor</span> yellowColor].CGColor),(__bridge <span class="keyword">id</span> _Nullable)([<span class="built_in">UIColor</span> blueColor].CGColor),(__bridge <span class="keyword">id</span> _Nullable)([<span class="built_in">UIColor</span> purpleColor].CGColor)];</div><div class="line">    </div><div class="line">    <span class="built_in">CAKeyframeAnimation</span> *keyframeAnimation2 = [<span class="built_in">CAKeyframeAnimation</span> animationWithKeyPath:<span class="string">@"position"</span>];</div><div class="line">    keyframeAnimation2.path = [<span class="built_in">UIBezierPath</span> bezierPathWithRoundedRect:<span class="keyword">self</span>.explicitLayer.frame cornerRadius:<span class="number">50</span>].CGPath;</div><div class="line">    </div><div class="line">    <span class="built_in">CAAnimationGroup</span> *groupAnimation = [[<span class="built_in">CAAnimationGroup</span> alloc]init];</div><div class="line">    groupAnimation.animations = @[keyframeAnimation1, keyframeAnimation2];</div><div class="line">    groupAnimation.duration = <span class="number">5</span>;</div><div class="line">    groupAnimation.removedOnCompletion = <span class="literal">false</span>;</div><div class="line">    groupAnimation.fillMode = kCAFillModeForwards;</div><div class="line">    [<span class="keyword">self</span>.explicitLayer addAnimation:groupAnimation forKey:<span class="literal">nil</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h4 id="CATransition"><a href="#CATransition" class="headerlink" title="CATransition"></a>CATransition</h4><p>过渡动画。</p>
+<hr>
+<p><a href="https://github.com/ElvisZP/CoreAnimationDemo" target="_blank" rel="external">CoreAnimationDemo</a></p>
 
       
     </div>
