@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://elviszp.github.io/"/>
-  <updated>2016-12-03T15:39:23.000Z</updated>
+  <updated>2016-12-03T15:41:42.000Z</updated>
   <id>https://elviszp.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Core Animation(二):显式动画</title>
+    <title>Core Animation总结(二):显式动画</title>
     <link href="https://elviszp.github.io/2016/12/03/2016-12-03%20Core%20Animation-2.html"/>
     <id>https://elviszp.github.io/2016/12/03/2016-12-03 Core Animation-2.html</id>
     <published>2016-12-03T14:02:01.000Z</published>
-    <updated>2016-12-03T15:39:23.000Z</updated>
+    <updated>2016-12-03T15:41:42.000Z</updated>
     
     <content type="html"><![CDATA[<p>显式动画的基础是CAAnimation，我们来看看CAAnimation的结构</p>
 <figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-<span class="ruby"> CAAnimation&lt;CAMediaTiming,CAAction&gt;</span></div><div class="line">	-<span class="ruby"> CAAnimationGroup</span></div><div class="line">	-<span class="ruby"> CAPropertAnimation</span></div><div class="line">		-<span class="ruby"> CABasicAnimation</span></div><div class="line">		-<span class="ruby"> CAKeyframeAnimation</span></div><div class="line">	-<span class="ruby"> CATransition</span></div></pre></td></tr></table></figure>
@@ -52,11 +52,11 @@
   </entry>
   
   <entry>
-    <title>Core Animation(一):CALayer</title>
+    <title>Core Animation总结(一):CALayer</title>
     <link href="https://elviszp.github.io/2016/12/03/2016-12-03%20Core%20Animation-1.html"/>
     <id>https://elviszp.github.io/2016/12/03/2016-12-03 Core Animation-1.html</id>
     <published>2016-12-03T05:02:01.000Z</published>
-    <updated>2016-12-03T15:38:49.000Z</updated>
+    <updated>2016-12-03T15:41:37.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="Core-Animation是什么？"><a href="#Core-Animation是什么？" class="headerlink" title="Core Animation是什么？"></a>Core Animation是什么？</h3><p>通过<a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreAnimation_guide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40004514" target="_blank" rel="external">Core Animation Programming Guide</a>文档我们可以看到，Core Animation不仅仅提供了动画功能，它还是iOS/OS X上负责图形渲染的基础设施。在iOS中，它是通过QuartzCore.framework框架来提供的。<br>下图是文档中提供的架构图，可以看出，Core Animation是基于Core Graphics和OpenGL的封装。</p>
 <p><img src="/images/14807455809639.png" alt=""><br><a id="more"></a></p>
