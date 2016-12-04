@@ -238,6 +238,140 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://elviszp.github.io/2016/12/04/2016-12-04.html">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="zhang peng">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/avatar/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="ElvisZP">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="ElvisZP" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/04/2016-12-04.html" itemprop="url">
+                  Core Animation总结(二):转场动画
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-04T13:02:01+08:00">
+                2016-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/04/2016-12-04.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/04/2016-12-04.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>苹果从iOS7开始推出了自定义转场动画的API，从此实现转场变得十分简单。</p>
+<h3 id="转场动画流程"><a href="#转场动画流程" class="headerlink" title="转场动画流程"></a>转场动画流程</h3><ol>
+<li>需要转场动画的ViewController实现<code>UINavigationControllerDelegate</code>或者<code>UIViewControllerTransitioningDelegate</code>协议。</li>
+<li>在页面跳转的时候会触发协议中关于转场动画的方法，该方法需要返回一个实现<code>UIViewControllerTransitioningDelegate</code>协议的对象。</li>
+<li>该对象会实现其中一个<code>(void)animateTransition:(id &lt;UIViewControllerContextTransitioning&gt;)transitionContext;</code>方法，而转场动画就在这个方法中完成。</li>
+<li>在上面方法中会提供一个<code>UIViewControllerContextTransitioning</code>对象，它提供了转场的上下文，包含了fromVC和toVC等各类信息。</li>
+</ol>
+<h3 id="protocol-UINavigationControllerDelegate-UIViewControllerTransitioningDelegate"><a href="#protocol-UINavigationControllerDelegate-UIViewControllerTransitioningDelegate" class="headerlink" title="@protocol UINavigationControllerDelegate/UIViewControllerTransitioningDelegate"></a>@protocol UINavigationControllerDelegate/UIViewControllerTransitioningDelegate</h3><p>在ViewController进行页面跳转的时候都会触发该回调，分别对应push和present方法。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Push方式实现此protocol</span></div><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">UINavigationControllerDelegate</span> &lt;<span class="title">NSObject</span>&gt;</span></div><div class="line">- (<span class="keyword">nullable</span> <span class="keyword">id</span> &lt;<span class="built_in">UIViewControllerInteractiveTransitioning</span>&gt;)navigationController:(<span class="built_in">UINavigationController</span> *)navigationController</div><div class="line">                          interactionControllerForAnimationController:(<span class="keyword">id</span> &lt;<span class="built_in">UIViewControllerAnimatedTransitioning</span>&gt;) animationController <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">7</span>_0);</div><div class="line">- (<span class="keyword">nullable</span> <span class="keyword">id</span> &lt;<span class="built_in">UIViewControllerAnimatedTransitioning</span>&gt;)navigationController:(<span class="built_in">UINavigationController</span> *)navigationController</div><div class="line">                                   animationControllerForOperation:(<span class="built_in">UINavigationControllerOperation</span>)operation</div><div class="line">                                                fromViewController:(<span class="built_in">UIViewController</span> *)fromVC</div><div class="line">                                                  toViewController:(<span class="built_in">UIViewController</span> *)toVC  <span class="built_in">NS_AVAILABLE_IOS</span>(<span class="number">7</span>_0);</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="comment">//Present方式实现此protocol</span></div><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">UIViewControllerTransitioningDelegate</span> &lt;<span class="title">NSObject</span>&gt;</span></div><div class="line">- (<span class="keyword">nullable</span> <span class="keyword">id</span> &lt;<span class="built_in">UIViewControllerAnimatedTransitioning</span>&gt;)animationControllerForPresentedController:(<span class="built_in">UIViewController</span> *)presented presentingController:(<span class="built_in">UIViewController</span> *)presenting sourceController:(<span class="built_in">UIViewController</span> *)source;</div><div class="line">- (<span class="keyword">nullable</span> <span class="keyword">id</span> &lt;<span class="built_in">UIViewControllerAnimatedTransitioning</span>&gt;)animationControllerForDismissedController:(<span class="built_in">UIViewController</span> *)dismissed;</div><div class="line">- (<span class="keyword">nullable</span> <span class="keyword">id</span> &lt;<span class="built_in">UIViewControllerInteractiveTransitioning</span>&gt;)interactionControllerForPresentation:(<span class="keyword">id</span> &lt;<span class="built_in">UIViewControllerAnimatedTransitioning</span>&gt;)animator;</div><div class="line">- (<span class="keyword">nullable</span> <span class="keyword">id</span> &lt;<span class="built_in">UIViewControllerInteractiveTransitioning</span>&gt;)interactionControllerForDismissal:(<span class="keyword">id</span> &lt;<span class="built_in">UIViewControllerAnimatedTransitioning</span>&gt;)animator;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<h3 id="protocol-UIViewControllerAnimatedTransitioning"><a href="#protocol-UIViewControllerAnimatedTransitioning" class="headerlink" title="@protocol UIViewControllerAnimatedTransitioning"></a>@protocol UIViewControllerAnimatedTransitioning</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">UIViewControllerAnimatedTransitioning</span> &lt;<span class="title">NSObject</span>&gt;</span></div><div class="line"><span class="comment">//返回切换的时间</span></div><div class="line">- (<span class="built_in">NSTimeInterval</span>)transitionDuration:(<span class="keyword">nullable</span> <span class="keyword">id</span> &lt;<span class="built_in">UIViewControllerContextTransitioning</span>&gt;)transitionContext;</div><div class="line"><span class="comment">// 在进行切换的时候将调用这个方法，动画设置都在这个方法中完成。</span></div><div class="line">- (<span class="keyword">void</span>)animateTransition:(<span class="keyword">id</span> &lt;<span class="built_in">UIViewControllerContextTransitioning</span>&gt;)transitionContext;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<h3 id="protocol-UIViewControllerContextTransitioning"><a href="#protocol-UIViewControllerContextTransitioning" class="headerlink" title="@protocol UIViewControllerContextTransitioning"></a>@protocol UIViewControllerContextTransitioning</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">UIView</span> *containerView;</div><div class="line">- (<span class="keyword">nullable</span> __kindof <span class="built_in">UIViewController</span> *)viewControllerForKey:(<span class="built_in">UITransitionContextViewControllerKey</span>)key;</div><div class="line">- (<span class="built_in">CGRect</span>)initialFrameForViewController:(<span class="built_in">UIViewController</span> *)vc;</div><div class="line">- (<span class="built_in">CGRect</span>)finalFrameForViewController:(<span class="built_in">UIViewController</span> *)vc;</div></pre></td></tr></table></figure>
+<h3 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h3>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="https://elviszp.github.io/2016/12/03/2016-12-03 Core Animation-2.html">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1461,7 +1595,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
